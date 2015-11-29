@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_fragment"
+            android:icon="@drawable/ic_one"
+            android:checked="true"
+            android:title="@string/family_guy" />
+        <item
+            android:id="@+id/nav_second_fragment"
+            android:icon="@drawable/ic_two"
+            android:title="@string/futurama" />
+        <item
+            android:id="@+id/nav_third_fragment"
+            android:icon="@drawable/ic_three"
+            android:title="@string/simpsons" />
+        <item android:title="Sub items">
+            <menu>
+                <item
+                    android:icon="@drawable/ic_one"
+                    android:title="Sub item 1" />
+                <item
+                    android:icon="@drawable/ic_two"
+                    android:title="Sub item 2" />
+                <item android:id="@+id/nav_switch"
+                    app:actionLayout="@layout/action_view_switch"
+                    android:title="Downloaded only" />
+            </menu>
+        </item>
+
+    </group>
+
+</menu>
