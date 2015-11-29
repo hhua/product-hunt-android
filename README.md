@@ -1,24 +1,27 @@
-# Android Navigation Drawer Exercise
+# Product Hunt Android App
 
-Android app to use as the base app for implementing material design style navigation drawer.
+## Features
 
-<img src="http://i.imgur.com/SSpyxZZ.gif" height="500"/>
+The following **required** functionality is completed:
 
-The app provides four pre-defined fragments to use when a list item in the navigation drawer is clicked.
-* SouthParkFragment
-* FamilyGuyFragment
-* SimpsonsFragment
-* FuturamaFragment
+* [ ] Authentication with Product Hunt and Twitter OAuth / Log Out
+* [ ] Browse `Tech` product hunts with infinite scrolling and with/o authentication
+* [ ] Browse popular `Collections` on Product Hunt
+* [ ] View a selected product hunt
+* [ ] View comments below a selected product hunt
+* [ ] Search hunts
+* [ ] View user profile and able to see `upvoted`, `Submitted`, `Made`, `Collections`, `Followers` and `Following` sections
+* [ ] See activities from users you followed
 
-## Usage
-This app is intended to be the base project on top of which new features can be added. To use it, clone the project and import it using the following steps:
+The following **optional** features are implemented:
 
-![Imgur](http://i.imgur.com/joPKoTk.gif)
-
-## Suggested extensions:
-
-1. Implement material design style navigation drawer.
-2. Populate the drawer list with items comprised of icon and title.
-3. Open the drawer by clicking on the hamburger menu in the `Actionbar`.
-4. Handle drawer item click events and replace the main content area with the corresponsing fragment.
-5. Add custom background for selected drawer item.
+* [ ] Add "Hunt" for `Tech` product hunts (Could be limited by API from Product Hunt)
+* [ ] Browse `Books`, `Podcasts` and `Live` product hunts with infinite scrolling
+* [ ] Follow/unfollow another user on Product Hunt
+* [ ] Push notifications on notification center
+* [ ] Add comment below a selected product hunt
+* [ ] Parse/Fabric Analytics Integration
+* [ ] View/Update profile, notification settings
+* [ ] Other information display, such as `Contact support`, `Follow me on Twitter`.
+* [ ] Google Now Integration
+* [ ] A calendar picker view to view product hunts on a certain date
