@@ -1,4 +1,4 @@
-package com.codepath.android.navigationdrawerexercise.activities;
+package com.hhua.android.producthunt.activities;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -14,11 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.codepath.android.navigationdrawerexercise.R;
-import com.codepath.android.navigationdrawerexercise.fragments.FamilyGuyFragment;
-import com.codepath.android.navigationdrawerexercise.fragments.FuturamaFragment;
-import com.codepath.android.navigationdrawerexercise.fragments.SimpsonsFragment;
-import com.codepath.android.navigationdrawerexercise.fragments.SouthParkFragment;
+import com.hhua.android.producthunt.R;
+import com.hhua.android.producthunt.fragments.FamilyGuyFragment;
+import com.hhua.android.producthunt.fragments.FuturamaFragment;
+import com.hhua.android.producthunt.fragments.SimpsonsFragment;
+import com.hhua.android.producthunt.fragments.SouthParkFragment;
 
 
 public class MainActivity extends AppCompatActivity {

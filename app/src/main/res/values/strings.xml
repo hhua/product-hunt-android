@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NavigationDrawerExercise</string>
+    <string name="app_name">Product Hunt</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
@@ -10,6 +10,8 @@
     <string name="futurama">Futurama</string>
     <string name="cartoon_wars">Cartoon Wars</string>
     <string name="simpsorama">Simpsorama</string>
+    <string name="title_activity_login">LoginActivity</string>
 
+    <string name="login_label">Login</string>
 
 </resources>

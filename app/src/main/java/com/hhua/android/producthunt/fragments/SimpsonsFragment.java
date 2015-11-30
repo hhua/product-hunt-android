@@ -1,4 +1,4 @@
-package com.codepath.android.navigationdrawerexercise.fragments;
+package com.hhua.android.producthunt.fragments;
 
 
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.codepath.android.navigationdrawerexercise.R;
+import com.hhua.android.producthunt.R;
 
 public class SimpsonsFragment extends Fragment {
 

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="codepath-utils">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/codepath-utils.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
