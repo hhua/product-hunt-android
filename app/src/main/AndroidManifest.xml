@@ -36,8 +36,9 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="github.com/hhua/product-hunt-android"
-                    android:scheme="https" />
+                    android:host="github.com"
+                    android:scheme="https"
+                    android:path="/hhua/product-hunt-android"/>
             </intent-filter>
         </activity>
     </application>
