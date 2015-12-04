@@ -1,11 +1,14 @@
 package com.hhua.android.producthunt.network;
 
+import com.hhua.android.producthunt.services.ProductHunt20ServiceImpl;
+
 import org.scribe.builder.api.DefaultApi20;
 import org.scribe.extractors.AccessTokenExtractor;
 import org.scribe.extractors.JsonTokenExtractor;
 import org.scribe.model.OAuthConfig;
 import org.scribe.model.OAuthConstants;
 import org.scribe.model.Verb;
+import org.scribe.oauth.OAuthService;
 import org.scribe.utils.OAuthEncoder;
 
 public class ProductHuntApi extends DefaultApi20 {
@@ -47,5 +50,10 @@ public class ProductHuntApi extends DefaultApi20 {
     @Override
     public AccessTokenExtractor getAccessTokenExtractor() {
         return new JsonTokenExtractor();
+    }
+
+    @Override
+    public OAuthService createService(final OAuthConfig config) {
+        return new ProductHunt20ServiceImpl(this, config);
     }
 }
