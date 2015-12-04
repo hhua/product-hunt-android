@@ -43,8 +43,9 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
                 }else {
                     Log.i(LOG_AUTHROIZE, "Authorization code received: " + authorizationCode);
 
-                    // Request access token
 
+                    // Request access token
+                    //getClient().authorize(uri);
 
                 }
             }

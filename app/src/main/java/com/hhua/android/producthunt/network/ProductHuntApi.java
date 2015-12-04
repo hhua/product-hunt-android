@@ -1,23 +1,28 @@
 package com.hhua.android.producthunt.network;
 
-import android.util.Log;
-
 import org.scribe.builder.api.DefaultApi20;
+import org.scribe.extractors.AccessTokenExtractor;
+import org.scribe.extractors.JsonTokenExtractor;
 import org.scribe.model.OAuthConfig;
 import org.scribe.model.OAuthConstants;
+import org.scribe.model.Verb;
 import org.scribe.utils.OAuthEncoder;
 
 public class ProductHuntApi extends DefaultApi20 {
     // Product Hunt API is using OAuth2 (Three legged)
     private static final String AUTHORIZE_URL = "https://api.producthunt.com/v1/oauth/authorize?client_id=%s&redirect_uri=%s&response_type=code&scope=public+private";
-    private static final String ACCESS_TOKEN_RESOURCE = "api.producthunt.com/v1/oauth/token";
+    private static final String ACCESS_TOKEN_URL = "https://api.producthunt.com/v1/oauth/token";
 
     private static final String LOG_D = "PRODUCT_HUNT_API";
 
     @Override
+    public Verb getAccessTokenVerb() {
+        return Verb.POST;
+    }
+
+    @Override
     public String getAccessTokenEndpoint() {
-        final String accessTokenEndpoint = "https://" + ACCESS_TOKEN_RESOURCE;
-        Log.d(LOG_D, accessTokenEndpoint);
+        final String accessTokenEndpoint = ACCESS_TOKEN_URL;
 
         return accessTokenEndpoint;
     }
@@ -37,5 +42,10 @@ public class ProductHuntApi extends DefaultApi20 {
 //            sb.append('&').append(OAuthConstants.STATE).append('=').append(OAuthEncoder.encode(state));
 //        }
         return sb.toString();
+    }
+
+    @Override
+    public AccessTokenExtractor getAccessTokenExtractor() {
+        return new JsonTokenExtractor();
     }
 }
