@@ -14,7 +14,7 @@ import org.scribe.utils.OAuthEncoder;
 public class ProductHuntApi extends DefaultApi20 {
     // Product Hunt API is using OAuth2 (Three legged)
     private static final String AUTHORIZE_URL = "https://api.producthunt.com/v1/oauth/authorize?client_id=%s&redirect_uri=%s&response_type=code&scope=public+private";
-    private static final String ACCESS_TOKEN_URL = "https://api.producthunt.com/v1/oauth/token";
+    private static final String ACCESS_TOKEN_URL = "https://api.producthunt.com/v1/oauth/token?grant_type=authorization_code";
 
     private static final String LOG_D = "PRODUCT_HUNT_API";
 
