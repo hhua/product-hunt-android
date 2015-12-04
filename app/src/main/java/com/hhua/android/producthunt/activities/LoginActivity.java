@@ -1,5 +1,7 @@
 package com.hhua.android.producthunt.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -11,6 +13,10 @@ import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
 
 public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient> {
+    private static final String AUTHORIZATION_REDIRECT_URL = "https://github.com/hhua/product-hunt-android";
+    private static final String RESPONSE_ACCESS_GRANT = "code";
+    private static final String LOG_D = "LOGIN";
+    private static final String LOG_AUTHROIZE = "LOGIN_AUTHORIZE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +27,30 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Intent intent = getIntent();
+        if (intent != null && intent.getData() != null) {
+            Uri uri = intent.getData();
+
+            if (uri.toString().startsWith(AUTHORIZATION_REDIRECT_URL)){ // coming from authorization url
+                String authorizationCode = uri.getQueryParameter(RESPONSE_ACCESS_GRANT);
+
+                if (authorizationCode == null) {
+                    Log.i(LOG_AUTHROIZE, "The user doesn't allow authorization.");
+                }else {
+                    Log.i(LOG_AUTHROIZE, "Authorization code received: " + authorizationCode);
+
+                    // Request access token
+
+
+                }
+            }
+        }
+    }
+
     // OAuth authenticated successfully, launch primary authenticated activity
     // i.e Display application "homepage"
     @Override
@@ -28,7 +58,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
         //Intent i = new Intent(this, TimelineActivity.class);
         //startActivity(i);
         Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show();
-        Log.d("Login", "Success!");
+        Log.d(LOG_D, "Success!");
     }
 
     // OAuth authentication flow failed, handle the error
@@ -36,6 +66,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
     @Override
     public void onLoginFailure(Exception e) {
         e.printStackTrace();
+        Log.d(LOG_D, "Failure!");
     }
 
     // Click handler method for the button used to start OAuth flow
