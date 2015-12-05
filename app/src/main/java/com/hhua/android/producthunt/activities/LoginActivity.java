@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.codepath.oauth.OAuthLoginActionBarActivity;
 import com.hhua.android.producthunt.ProductHuntClient;
@@ -24,7 +23,6 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
         setContentView(R.layout.activity_login);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
     }
 
     @Override
@@ -56,9 +54,9 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
     // i.e Display application "homepage"
     @Override
     public void onLoginSuccess() {
-        //Intent i = new Intent(this, TimelineActivity.class);
-        //startActivity(i);
-        Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show();
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        //Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show();
         Log.d(LOG_D, "Success!");
     }
 

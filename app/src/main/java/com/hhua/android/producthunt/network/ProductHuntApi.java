@@ -10,6 +10,7 @@ import org.scribe.model.OAuthConstants;
 import org.scribe.model.Verb;
 import org.scribe.oauth.OAuthService;
 import org.scribe.utils.OAuthEncoder;
+import org.scribe.utils.Preconditions;
 
 public class ProductHuntApi extends DefaultApi20 {
     // Product Hunt API is using OAuth2 (Three legged)
@@ -32,18 +33,14 @@ public class ProductHuntApi extends DefaultApi20 {
 
     @Override
     public String getAuthorizationUrl(final OAuthConfig config) {
-//        Preconditions.checkValidUrl(config.getCallback(),
-//                "Must provide a valid url as callback. Product Hunt does not support OOB");
+        Preconditions.checkValidUrl(config.getCallback(),
+                "Must provide a valid url as callback. Product Hunt does not support OOB");
         final StringBuilder sb = new StringBuilder(String.format(AUTHORIZE_URL, config.getApiKey(), OAuthEncoder.encode(
                 config.getCallback())));
         if (config.hasScope()) {
             sb.append('&').append(OAuthConstants.SCOPE).append('=').append(OAuthEncoder.encode(config.getScope()));
         }
 
-//        final String state = config.getState();
-//        if (state != null) {
-//            sb.append('&').append(OAuthConstants.STATE).append('=').append(OAuthEncoder.encode(state));
-//        }
         return sb.toString();
     }
 

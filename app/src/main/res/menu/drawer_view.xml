@@ -6,26 +6,20 @@
             android:id="@+id/nav_first_fragment"
             android:icon="@drawable/ic_one"
             android:checked="true"
-            android:title="@string/family_guy" />
+            android:title="@string/products" />
         <item
             android:id="@+id/nav_second_fragment"
             android:icon="@drawable/ic_two"
-            android:title="@string/futurama" />
+            android:title="@string/collections" />
         <item
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/ic_three"
-            android:title="@string/simpsons" />
+            android:title="@string/activities" />
         <item android:title="Sub items">
             <menu>
                 <item
                     android:icon="@drawable/ic_one"
-                    android:title="Sub item 1" />
-                <item
-                    android:icon="@drawable/ic_two"
-                    android:title="Sub item 2" />
-                <item android:id="@+id/nav_switch"
-                    app:actionLayout="@layout/action_view_switch"
-                    android:title="Downloaded only" />
+                    android:title="@string/settings" />
             </menu>
         </item>
 

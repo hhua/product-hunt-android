@@ -4,13 +4,13 @@
     <string name="drawer_close">Close navigation drawer</string>
 
     <!-- Nav Drawer Menu Items -->
-    <string name="south_park">South Park</string>
-    <string name="family_guy">Family Guy</string>
-    <string name="simpsons">The Simpsons</string>
-    <string name="futurama">Futurama</string>
-    <string name="cartoon_wars">Cartoon Wars</string>
-    <string name="simpsorama">Simpsorama</string>
     <string name="title_activity_login">LoginActivity</string>
+
+    <string name="products">Products</string>
+    <string name="collections">Collections</string>
+    <string name="activities">Activities</string>
+
+    <string name="settings">Settings</string>
 
     <string name="login_label">Login</string>
 
