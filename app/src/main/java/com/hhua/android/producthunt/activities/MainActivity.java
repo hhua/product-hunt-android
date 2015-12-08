@@ -5,20 +5,16 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.hhua.android.producthunt.R;
-import com.hhua.android.producthunt.fragments.FamilyGuyFragment;
-import com.hhua.android.producthunt.fragments.FuturamaFragment;
-import com.hhua.android.producthunt.fragments.SimpsonsFragment;
-import com.hhua.android.producthunt.fragments.SouthParkFragment;
+import com.hhua.android.producthunt.fragments.ActivitiesFragment;
+import com.hhua.android.producthunt.fragments.CollectionsFragment;
+import com.hhua.android.producthunt.fragments.TechPostsFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -49,15 +45,15 @@ public class MainActivity extends AppCompatActivity {
         // Setup drawer view
         setupDrawerContent(nvDrawer);
 
-        Menu menu = nvDrawer.getMenu();
-        MenuItem menuItem = menu.findItem(R.id.nav_switch);
-        View actionView = MenuItemCompat.getActionView(menuItem);
-        actionView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        Menu menu = nvDrawer.getMenu();
+//        MenuItem menuItem = menu.findItem(R.id.nav_switch);
+//        View actionView = MenuItemCompat.getActionView(menuItem);
+//        actionView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
     }
 
@@ -112,16 +108,16 @@ public class MainActivity extends AppCompatActivity {
         Class fragmentClass;
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
-                fragmentClass = FamilyGuyFragment.class;
+                fragmentClass = TechPostsFragment.class;
                 break;
             case R.id.nav_second_fragment:
-                fragmentClass = FuturamaFragment.class;
+                fragmentClass = CollectionsFragment.class;
                 break;
             case R.id.nav_third_fragment:
-                fragmentClass = SimpsonsFragment.class;
+                fragmentClass = ActivitiesFragment.class;
                 break;
             default:
-                fragmentClass = SouthParkFragment.class;
+                fragmentClass = TechPostsFragment.class;
         }
 
         try {

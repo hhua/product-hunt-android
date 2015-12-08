@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/libs/scribe-1.3.7.jar"
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/libs/scribe-codepath-0.0.3.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="583921bed46635d9f529ef5f14f7c9e83367bc6e">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/scribe-1.3.7-dbb8f37006cb9b49b0bc46c3566d46eb78580a99.jar" />
+        sha1="a580d06de954001f787e8d024bfcf931fe30bdda">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/scribe-codepath-0.0.3-753af577c1affe87e51a590ded8b6c3bf3f06075.jar" />
     </item>
 
 </items>

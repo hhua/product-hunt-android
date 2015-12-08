@@ -2,9 +2,12 @@ package com.hhua.android.producthunt;
 
 import android.content.Context;
 
+import android.util.Log;
+
 import com.codepath.oauth.OAuthBaseClient;
 import com.hhua.android.producthunt.network.ProductHuntApi;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.scribe.builder.api.Api;
 
@@ -23,19 +26,21 @@ public class ProductHuntClient extends OAuthBaseClient {
         super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);
     }
 
-    // Hunts - Get us hunts
-    public void getHunts(AsyncHttpResponseHandler handler){
-//        String apiUrl = getApiUrl("statuses/home_timeline.json");
-//
-//        RequestParams params = new RequestParams();
-//        params.put("count", 25);
-//        params.put("since_id", 1);
-//
-//        if (oldestId != -1){
-//            params.put("max_id", oldestId - 1);
-//        }
-//
-//        // Execute the request
-//        getClient().get(apiUrl, params, handler);
+    // Get Tech Hunts
+    // GET /v1/posts?days_ago=1
+    public void getTechHunts(int daysAgo, AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("posts");
+
+        RequestParams params = new RequestParams();
+        if (daysAgo > 0){
+            params.put("days_ago", daysAgo);
+        }
+
+        // Execute the request
+        Log.d("DEBUG", getClient().getAccessToken().toString());
+
+        // No idea why I need to add header by myself
+        getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
+        getClient().get(apiUrl, params, handler);
     }
 }
