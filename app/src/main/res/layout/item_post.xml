@@ -29,12 +29,20 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+    <com.makeramen.roundedimageview.RoundedImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:scaleType="fitCenter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/ivProfile"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        app:riv_corner_radius="20dip"
+        app:riv_border_width="0dip"
+        app:riv_oval="true"/>
 
     <LinearLayout
         android:orientation="vertical"

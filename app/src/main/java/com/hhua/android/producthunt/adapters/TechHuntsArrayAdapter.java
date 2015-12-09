@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.hhua.android.producthunt.R;
 import com.hhua.android.producthunt.models.TechHunt;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class TechHuntsArrayAdapter extends ArrayAdapter<TechHunt> {
             ivVoteIcon.setImageResource(R.drawable.ic_voteup);
         }
 
-        // TODO: load hunter profile image
+        Picasso.with(getContext()).load(techHunt.getHunter().getSmallProfileImageUrl()).fit().into(ivProfile);
 
         return convertView;
     }

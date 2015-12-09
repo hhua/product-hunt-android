@@ -14,6 +14,7 @@ public class TechHunt extends Post {
     private boolean votedForPost;
     private String day;
     private boolean featured;
+    private User hunter;
 
     public static TechHunt fromJSON(JSONObject jsonObject){
         TechHunt techHunt = new TechHunt();
@@ -25,6 +26,7 @@ public class TechHunt extends Post {
             techHunt.votedForPost = jsonObject.getJSONObject("current_user").optBoolean("voted_for_post");
             techHunt.day = jsonObject.getString("day");
             techHunt.featured = jsonObject.getBoolean("featured");
+            techHunt.hunter = User.fromJSON(jsonObject.getJSONObject("user"));
         }catch(JSONException e){
             e.printStackTrace();
         }
@@ -73,5 +75,9 @@ public class TechHunt extends Post {
 
     public boolean isFeatured() {
         return featured;
+    }
+
+    public User getHunter() {
+        return hunter;
     }
 }
