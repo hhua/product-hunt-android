@@ -112,17 +112,11 @@ public class TechPostsFragment extends Fragment {
                     e.printStackTrace();
                     daysBefore--;
                 }
-
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 Log.d("DEBUG", errorResponse.toString());
-                Log.d("DEBUG", statusCode + "");
-                for(int i = 0; i < headers.length; i++){
-                    Log.d("DEBUG", headers[i].toString());
-                }
-
                 daysBefore--;
             }
 

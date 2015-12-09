@@ -5,32 +5,33 @@
 
     <RelativeLayout
         android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:id="@+id/rlVotes"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="0"
-            android:id="@+id/tvVoteCount"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ivVoteIcon"
             android:src="@drawable/ic_voteup"
-            android:layout_alignBottom="@+id/tvVoteCount"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="0"
+            android:id="@+id/tvVoteCount"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp" />
+
     </RelativeLayout>
 
     <ImageView
         android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:id="@+id/ivProfile"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
@@ -38,7 +39,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:id="@+id/llTitleTagline"
         android:layout_toStartOf="@+id/ivProfile"
@@ -47,18 +48,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Title"
             android:id="@+id/tvTitle"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:ellipsize="end"
+            android:enabled="false"
+            android:lines="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#444444"
+            android:layout_marginTop="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Tagline"
-            android:id="@+id/tvTagline" />
+            android:id="@+id/tvTagline"
+            android:textSize="14dp"
+            android:ellipsize="end"
+            android:lines="3" />
     </LinearLayout>
 
 </RelativeLayout>
