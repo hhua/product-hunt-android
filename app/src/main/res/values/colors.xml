@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_dark">#F57C00</color>
+    <color name="primary_dark">#da552f</color>
     <color name="primary">#FF9800</color>
     <color name="accent">#FF5722</color>
+
+    <color name="tech_blue">#5898f1</color>
+    <color name="game_purple">#ca65e9</color>
+    <color name="green">#00b27f</color>
 </resources>

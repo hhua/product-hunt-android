@@ -21,11 +21,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="0"
             android:id="@+id/tvVoteCount"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp" />
+            android:layout_marginTop="35dp" />
 
     </RelativeLayout>
 

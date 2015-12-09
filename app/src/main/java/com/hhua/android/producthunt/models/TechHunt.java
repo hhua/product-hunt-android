@@ -59,8 +59,8 @@ public class TechHunt extends Post {
         return tagline;
     }
 
-    public int getVotesCount() {
-        return votesCount;
+    public String getVotesCount() {
+        return "" + votesCount;
     }
 
     public boolean isVotedForPost() {
