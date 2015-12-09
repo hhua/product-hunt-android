@@ -48,6 +48,9 @@ public class TechPostsFragment extends Fragment {
     // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        client = ProductHuntApplication.getRestClient();
+
         swipeContainer = (SwipeRefreshLayout) view.findViewById(R.id.techPostsSwipeContainer);
 
         // Setup refresh listener which triggers new data loading
@@ -86,7 +89,6 @@ public class TechPostsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        client = ProductHuntApplication.getRestClient();
         daysBefore = 0;
         populateTechPosts(0);
     }

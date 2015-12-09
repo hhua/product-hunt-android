@@ -57,6 +57,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         //Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show();
+
         Log.d(LOG_D, "Success!");
     }
 

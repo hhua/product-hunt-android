@@ -2,8 +2,6 @@ package com.hhua.android.producthunt;
 
 import android.content.Context;
 
-import android.util.Log;
-
 import com.codepath.oauth.OAuthBaseClient;
 import com.hhua.android.producthunt.network.ProductHuntApi;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -37,8 +35,6 @@ public class ProductHuntClient extends OAuthBaseClient {
         }
 
         // Execute the request
-        Log.d("DEBUG", getClient().getAccessToken().toString());
-
         // No idea why I need to add header by myself
         getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
         getClient().get(apiUrl, params, handler);
