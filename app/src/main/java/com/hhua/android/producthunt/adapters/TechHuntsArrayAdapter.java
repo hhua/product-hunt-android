@@ -1,6 +1,7 @@
 package com.hhua.android.producthunt.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,8 +43,10 @@ public class TechHuntsArrayAdapter extends ArrayAdapter<TechHunt> {
 
         if (techHunt.isVotedForPost()) {
             ivVoteIcon.setImageResource(R.drawable.ic_voted);
+            tvVoteCount.setTextColor(Color.parseColor("#da552f"));
         }else {
             ivVoteIcon.setImageResource(R.drawable.ic_voteup);
+            tvVoteCount.setTextColor(Color.GRAY);
         }
 
         Picasso.with(getContext()).load(techHunt.getHunter().getSmallProfileImageUrl()).fit().into(ivProfile);
