@@ -98,6 +98,19 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+
+        // Set up startup fragment
+        Class defaultFragmentClass = TechPostsFragment.class;
+        Fragment defaultFragment = null;
+        try {
+            defaultFragment = (Fragment) defaultFragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, defaultFragment).commit();
+        setTitle("Products");
     }
 
     public void selectDrawerItem(MenuItem menuItem) {
