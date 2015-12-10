@@ -4,21 +4,21 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_first_fragment"
-            android:icon="@drawable/ic_one"
+            android:icon="@drawable/ic_home"
             android:checked="true"
             android:title="@string/products" />
         <item
             android:id="@+id/nav_second_fragment"
-            android:icon="@drawable/ic_two"
+            android:icon="@drawable/ic_collections"
             android:title="@string/collections" />
         <item
             android:id="@+id/nav_third_fragment"
-            android:icon="@drawable/ic_three"
+            android:icon="@drawable/ic_activities"
             android:title="@string/activities" />
         <item android:title="Sub items">
             <menu>
                 <item
-                    android:icon="@drawable/ic_one"
+                    android:icon="@drawable/ic_settings"
                     android:title="@string/settings" />
             </menu>
         </item>
