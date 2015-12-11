@@ -1,5 +1,6 @@
 package com.hhua.android.producthunt.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -7,11 +8,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
+import com.hhua.android.producthunt.activities.DetailsActivity;
 import com.hhua.android.producthunt.adapters.PostsEndlessScrollListener;
 import com.hhua.android.producthunt.adapters.TechHuntsArrayAdapter;
 import com.hhua.android.producthunt.models.TechHunt;
@@ -35,6 +38,8 @@ public class TechPostsFragment extends Fragment {
     private int daysBefore;
 
     private final int REQUEST_CODE = 20;
+
+    public final static String EXTRA_MESSAGE = "com.hhua.android.producthunt.MESSAGE";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,6 +80,18 @@ public class TechPostsFragment extends Fragment {
             public boolean onLoadMore(int page, int totalItemsCount) {
                 customLoadMoreDataFromApi(page);
                 return true;
+            }
+        });
+
+        lvTechHunts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TechHunt techHunt = techHunts.get(position);
+
+                Intent intent = new Intent(getContext(), DetailsActivity.class);
+                intent.putExtra("id", techHunt.getId());
+
+                startActivity(intent);
             }
         });
 

@@ -5,7 +5,7 @@
 The following **required** functionality is completed:
 
 * [x] Authentication with Product Hunt and Twitter OAuth / Log Out
-* [ ] Browse `Tech` product hunts with infinite scrolling and with/o authentication
+* [x] Browse `Tech` product hunts with infinite scrolling and with/o authentication
 * [ ] Browse popular `Collections` on Product Hunt
 * [ ] View a selected product hunt
 * [ ] View comments below a selected product hunt

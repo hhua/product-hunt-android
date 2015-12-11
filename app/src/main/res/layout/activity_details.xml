@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.hhua.android.producthunt.activities.LoginActivity">
+    tools:context="com.hhua.android.producthunt.activities.DetailsActivity">
 
     <!-- The ActionBar displayed at the top -->
     <include
@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <include layout="@layout/content_login" />
+    <include layout="@layout/content_details" />
+
 
 </android.support.design.widget.CoordinatorLayout>

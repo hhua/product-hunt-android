@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TechHunt extends Post {
+    private int id;
     private String name;
     private String tagline;
     private int votesCount;
@@ -20,6 +21,7 @@ public class TechHunt extends Post {
         TechHunt techHunt = new TechHunt();
 
         try{
+            techHunt.id = jsonObject.getInt("id");
             techHunt.name = jsonObject.getString("name");
             techHunt.tagline = jsonObject.getString("tagline");
             techHunt.votesCount = jsonObject.getInt("votes_count");
@@ -51,6 +53,10 @@ public class TechHunt extends Post {
         }
 
         return techHunts;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
