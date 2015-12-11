@@ -39,7 +39,7 @@ public class TechPostsFragment extends Fragment {
 
     private final int REQUEST_CODE = 20;
 
-    public final static String EXTRA_MESSAGE = "com.hhua.android.producthunt.MESSAGE";
+    public final static String EXTRA_POST_ID_MESSAGE = "com.hhua.android.producthunt.techpostsfragment.POST_ID";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -89,7 +89,7 @@ public class TechPostsFragment extends Fragment {
                 TechHunt techHunt = techHunts.get(position);
 
                 Intent intent = new Intent(getContext(), DetailsActivity.class);
-                intent.putExtra("id", techHunt.getId());
+                intent.putExtra(EXTRA_POST_ID_MESSAGE, techHunt.getId());
 
                 startActivity(intent);
             }
