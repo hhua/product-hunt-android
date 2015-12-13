@@ -39,4 +39,34 @@ public class ProductHuntClient extends OAuthBaseClient {
         getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
         getClient().get(apiUrl, params, handler);
     }
+
+    // Get Post
+    // GET /v1/posts/:id
+    public void getPost(int postId, AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("posts/" + postId);
+
+        RequestParams params = new RequestParams();
+        getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
+        getClient().get(apiUrl, params, handler);
+    }
+
+    // Get Featured Collections
+    // GET /v1/collections
+    public void getFeaturedCollections(int olderId, AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("collections");
+
+        RequestParams params = new RequestParams();
+
+        params.put("sort_by", "featured_at");
+        params.put("order", "desc");
+        params.put("per_page", 20);
+        params.put("search[featured]", true);
+
+        if (olderId > -1) {
+            params.put("older", olderId);
+        }
+
+        getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
+        getClient().get(apiUrl, params, handler);
+    }
 }

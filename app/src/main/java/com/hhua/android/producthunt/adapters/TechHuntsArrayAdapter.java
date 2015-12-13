@@ -34,7 +34,6 @@ public class TechHuntsArrayAdapter extends ArrayAdapter<TechHunt> {
         TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
         TextView tvTagline = (TextView) convertView.findViewById(R.id.tvTagline);
 
-
         tvTitle.setText(techHunt.getName());
         tvTagline.setText(techHunt.getTagline());
         tvVoteCount.setText(techHunt.getVotesCount());
