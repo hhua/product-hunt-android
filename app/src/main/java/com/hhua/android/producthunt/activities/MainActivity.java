@@ -1,5 +1,6 @@
 package com.hhua.android.producthunt.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.R;
 import com.hhua.android.producthunt.fragments.ActivitiesFragment;
 import com.hhua.android.producthunt.fragments.CollectionsFragment;
@@ -45,13 +47,14 @@ public class MainActivity extends AppCompatActivity {
         // Setup drawer view
         setupDrawerContent(nvDrawer);
 
+        // Set up sign out button
 //        Menu menu = nvDrawer.getMenu();
-//        MenuItem menuItem = menu.findItem(R.id.nav_switch);
+//        MenuItem menuItem = menu.findItem(R.id.sign_out);
 //        View actionView = MenuItemCompat.getActionView(menuItem);
 //        actionView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//
+//                ProductHuntApplication.getRestClient().clearAccessToken();
 //            }
 //        });
 
@@ -129,6 +132,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_third_fragment:
                 fragmentClass = ActivitiesFragment.class;
                 break;
+            case R.id.sign_out:
+                ProductHuntApplication.getRestClient().clearAccessToken();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                return;
             default:
                 fragmentClass = TechPostsFragment.class;
         }
