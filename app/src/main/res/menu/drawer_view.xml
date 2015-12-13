@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:id="@+id/menuTop">
         <item
             android:id="@+id/nav_first_fragment"
             android:icon="@drawable/ic_home"
@@ -15,14 +16,21 @@
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/ic_activities"
             android:title="@string/activities" />
-        <item android:title="Sub items">
-            <menu>
-                <item
-                    android:icon="@drawable/ic_settings"
-                    android:title="@string/settings" />
-            </menu>
-        </item>
+        <!--<item android:title="Sub items">-->
+            <!--<menu>-->
+                <!--<item-->
+                    <!--android:icon="@drawable/ic_settings"-->
+                    <!--android:title="@string/settings" />-->
+            <!--</menu>-->
+        <!--</item>-->
 
+    </group>
+
+    <group android:id="@+id/menuOthers"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/sign_out"
+            android:title="@string/sign_out" />
     </group>
 
 </menu>
