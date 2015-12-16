@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/2.2.1/jars/classes.jar"
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="814fc0c3ec69a944add398217d90077301501a74">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/classes-b4a0daeb29304fb562fd687b4b0075ce0ffb316f.jar" />
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/classes-3f566ca33bdac8275eabd89b06fbd96c5c9ca39a.jar" />
     </item>
 
 </items>

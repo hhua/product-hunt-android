@@ -19,5 +19,6 @@
 
     <!-- DetailsActivity -->
     <string name="details">Details</string>
+    <string name="get_it">GET IT</string>
 
 </resources>

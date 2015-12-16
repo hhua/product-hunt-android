@@ -16,6 +16,9 @@ public class TechHunt extends Post {
     private String day;
     private boolean featured;
     private User hunter;
+    private String redirectUrl;
+    private List<Media> mediaList;
+    private int headerMediaId;
 
     public static TechHunt fromJSON(JSONObject jsonObject){
         TechHunt techHunt = new TechHunt();
@@ -29,6 +32,13 @@ public class TechHunt extends Post {
             techHunt.day = jsonObject.getString("day");
             techHunt.featured = jsonObject.getBoolean("featured");
             techHunt.hunter = User.fromJSON(jsonObject.getJSONObject("user"));
+            techHunt.redirectUrl = jsonObject.getString("redirect_url");
+            JSONArray mediaJsonArray = jsonObject.optJSONArray("media");
+
+            if (mediaJsonArray != null){
+                techHunt.mediaList = Media.fromJSONArray(mediaJsonArray);
+            }
+            techHunt.headerMediaId = jsonObject.optInt("header_media_id");
         }catch(JSONException e){
             e.printStackTrace();
         }
@@ -53,6 +63,18 @@ public class TechHunt extends Post {
         }
 
         return techHunts;
+    }
+
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
+
+    public List<Media> getMediaList() {
+        return mediaList;
+    }
+
+    public int getHeaderMediaId() {
+        return headerMediaId;
     }
 
     public int getId() {

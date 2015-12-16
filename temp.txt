@@ -6,3 +6,5 @@ Answer: You will have to manually override url loading and intercept the request
     * http://stackoverflow.com/questions/2958701/launch-custom-android-application-from-android-browser
     * http://stackoverflow.com/questions/3469908/make-a-link-in-the-android-browser-start-up-my-app/3472228#3472228
 
+## TO-DO
+-[ ] 

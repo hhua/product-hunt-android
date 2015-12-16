@@ -7,4 +7,7 @@
     <color name="tech_blue">#5898f1</color>
     <color name="game_purple">#ca65e9</color>
     <color name="green">#00b27f</color>
+    <color name="white">#ffffff</color>
+
+    <color name="transparent">#00000000</color>
 </resources>
