@@ -16,6 +16,7 @@ public class Collection {
     private String title;
     private String color;
     private String backgroundImageUrl;
+    private int postsCount;
 
     public static Collection fromJSON(JSONObject json){
         Collection collection = new Collection();
@@ -26,6 +27,7 @@ public class Collection {
             collection.title = json.getString("title");
             collection.color = json.getString("color");
             collection.backgroundImageUrl = json.getString("background_image_url");
+            collection.postsCount = json.getInt("posts_count");
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -71,5 +73,9 @@ public class Collection {
 
     public String getBackgroundImageUrl() {
         return backgroundImageUrl;
+    }
+
+    public String getPostsCount() {
+        return "" + postsCount;
     }
 }

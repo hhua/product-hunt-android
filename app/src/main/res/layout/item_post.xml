@@ -64,7 +64,7 @@
             android:lines="1"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:textColor="#444444"
+            android:textColor="@color/post_title_color"
             android:layout_marginTop="5dp"/>
 
         <TextView
@@ -73,6 +73,7 @@
             android:text="Tagline"
             android:id="@+id/tvTagline"
             android:textSize="14dp"
+            android:textColor="@color/post_tagline_color"
             android:ellipsize="end"
             android:lines="3" />
     </LinearLayout>

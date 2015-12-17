@@ -70,6 +70,17 @@ public class ProductHuntClient extends OAuthBaseClient {
         getClient().get(apiUrl, params, handler);
     }
 
+    // Get Selected Collections
+    // GET /v1/collections/:id
+    public void getCollection(int collectionId, AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("collections/" + collectionId);
+
+        RequestParams params = new RequestParams();
+
+        getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
+        getClient().get(apiUrl, params, handler);
+    }
+
     // Get Current User Info
     // GET /v1/me
     public void getSettings(AsyncHttpResponseHandler handler){

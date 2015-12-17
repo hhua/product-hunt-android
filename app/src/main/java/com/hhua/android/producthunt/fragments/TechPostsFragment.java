@@ -17,6 +17,7 @@ import com.hhua.android.producthunt.R;
 import com.hhua.android.producthunt.activities.DetailsActivity;
 import com.hhua.android.producthunt.adapters.PostsEndlessScrollListener;
 import com.hhua.android.producthunt.adapters.TechHuntsArrayAdapter;
+import com.hhua.android.producthunt.models.Post;
 import com.hhua.android.producthunt.models.TechHunt;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -38,8 +39,6 @@ public class TechPostsFragment extends Fragment {
     private int daysBefore;
 
     private final int REQUEST_CODE = 20;
-
-    public final static String EXTRA_POST_ID_MESSAGE = "com.hhua.android.producthunt.techpostsfragment.POST_ID";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -89,7 +88,7 @@ public class TechPostsFragment extends Fragment {
                 TechHunt techHunt = techHunts.get(position);
 
                 Intent intent = new Intent(getContext(), DetailsActivity.class);
-                intent.putExtra(EXTRA_POST_ID_MESSAGE, techHunt.getId());
+                intent.putExtra(Post.POST_ID_MESSAGE, techHunt.getId());
 
                 startActivity(intent);
             }

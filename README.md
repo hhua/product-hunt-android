@@ -8,6 +8,7 @@ The following **required** functionality is completed:
 * [x] Browse `Tech` product hunts with infinite scrolling and with/o authentication
 * [x] Browse popular `Collections` on Product Hunt
 * [x] View a selected product hunt
+* [x] View a specific collection
 * [ ] View comments below a selected product hunt
 * [ ] Search hunts
 * [ ] View user profile and able to see `upvoted`, `Submitted`, `Made`, `Collections`, `Followers` and `Following` sections

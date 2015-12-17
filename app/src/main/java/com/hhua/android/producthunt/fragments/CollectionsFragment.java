@@ -1,6 +1,7 @@
 package com.hhua.android.producthunt.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,11 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
+import com.hhua.android.producthunt.activities.CollectionActivity;
 import com.hhua.android.producthunt.adapters.CollectionsArrayAdapter;
 import com.hhua.android.producthunt.adapters.CollectionsEndlessScrollListener;
 import com.hhua.android.producthunt.models.Collection;
@@ -32,6 +35,8 @@ public class CollectionsFragment extends Fragment {
     private ListView lvCollections;
     private List<Collection> collections;
     private CollectionsArrayAdapter collectionsAdapter;
+
+    public final static String EXTRA_COLLECTION_ID_MESSAGE = "com.hhua.android.producthunt.collectionsfragment.COLLECTION_ID";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,6 +77,18 @@ public class CollectionsFragment extends Fragment {
             }
         });
 
+        lvCollections.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Collection collection = collections.get(position);
+
+                Intent intent = new Intent(getContext(), CollectionActivity.class);
+                intent.putExtra(EXTRA_COLLECTION_ID_MESSAGE, collection.getId());
+
+                startActivity(intent);
+            }
+        });
+
         collections = new ArrayList<>();
         collectionsAdapter = new CollectionsArrayAdapter(getContext(), collections);
         lvCollections.setAdapter(collectionsAdapter);
@@ -85,18 +102,18 @@ public class CollectionsFragment extends Fragment {
     }
 
     private void refreshCollections(){
-        client.getFeaturedCollections(-1, new JsonHttpResponseHandler(){
+        client.getFeaturedCollections(-1, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("DEBUG", response.toString());
 
-                try{
+                try {
                     List<Collection> collections = Collection.fromJSONArray(response.getJSONArray("collections"));
                     collectionsAdapter.clear();
                     collectionsAdapter.addAll(collections);
 
                     swipeContainer.setRefreshing(false);
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
@@ -116,7 +133,7 @@ public class CollectionsFragment extends Fragment {
     }
 
     public void populateCollections(int olderId){
-        client.getFeaturedCollections(olderId, new JsonHttpResponseHandler(){
+        client.getFeaturedCollections(olderId, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("DEBUG", response.toString());
@@ -124,7 +141,7 @@ public class CollectionsFragment extends Fragment {
                 try {
                     List<Collection> collections = Collection.fromJSONArray(response.getJSONArray("collections"));
                     collectionsAdapter.addAll(collections);
-                }catch (JSONException e){
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }

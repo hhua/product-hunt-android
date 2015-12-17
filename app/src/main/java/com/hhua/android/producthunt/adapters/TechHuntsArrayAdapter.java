@@ -38,7 +38,8 @@ public class TechHuntsArrayAdapter extends ArrayAdapter<TechHunt> {
         tvTagline.setText(techHunt.getTagline());
         tvVoteCount.setText(techHunt.getVotesCount());
         //ivVoteIcon.setImageResource(android.R.color.transparent);
-        ivProfile.setImageResource(android.R.color.transparent);
+        //ivProfile.setImageResource(android.R.color.transparent);
+        ivProfile.setImageResource(0);
 
         if (techHunt.isVotedForPost()) {
             ivVoteIcon.setImageResource(R.drawable.ic_voted);
@@ -48,6 +49,7 @@ public class TechHuntsArrayAdapter extends ArrayAdapter<TechHunt> {
             tvVoteCount.setTextColor(Color.GRAY);
         }
 
+        //Log.d("tech_hunt_adapter", techHunt.getHunter().getSmallProfileImageUrl());
         Picasso.with(getContext()).load(techHunt.getHunter().getSmallProfileImageUrl()).fit().into(ivProfile);
 
         return convertView;

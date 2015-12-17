@@ -19,8 +19,8 @@ import android.widget.TextView;
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
-import com.hhua.android.producthunt.fragments.TechPostsFragment;
 import com.hhua.android.producthunt.models.Media;
+import com.hhua.android.producthunt.models.Post;
 import com.hhua.android.producthunt.models.TechHunt;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
@@ -48,7 +48,7 @@ public class DetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        int postId = intent.getIntExtra(TechPostsFragment.EXTRA_POST_ID_MESSAGE, -1);
+        int postId = intent.getIntExtra(Post.POST_ID_MESSAGE, -1);
 
         setTitle("Details");
 

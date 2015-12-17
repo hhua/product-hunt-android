@@ -20,5 +20,6 @@
     <!-- DetailsActivity -->
     <string name="details">Details</string>
     <string name="get_it">GET IT</string>
+    <string name="title_activity_collection">CollectionActivity</string>
 
 </resources>
