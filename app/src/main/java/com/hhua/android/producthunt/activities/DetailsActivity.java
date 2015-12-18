@@ -7,6 +7,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,9 +20,12 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
+import com.hhua.android.producthunt.fragments.CommentsFragment;
+import com.hhua.android.producthunt.fragments.MediaFragment;
 import com.hhua.android.producthunt.models.Media;
 import com.hhua.android.producthunt.models.Post;
 import com.hhua.android.producthunt.models.TechHunt;
@@ -50,12 +57,21 @@ public class DetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int postId = intent.getIntExtra(Post.POST_ID_MESSAGE, -1);
 
-        setTitle("Details");
+        setTitle("");
 
         if (postId == -1){
             Log.d(LOG_D, "Post ID incorrect!");
             return;
         }
+
+        // Get the view pager
+        ViewPager vpPager = (ViewPager) findViewById(R.id.detailPageViewPager);
+        // Set the view pager adapter to the pager
+        vpPager.setAdapter(new DetailsPagerAdapter(getSupportFragmentManager()));
+        // Find the pager sliding tabs
+        PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.detailPageTabs);
+        // Attach pager tabs to the viewpager
+        tabStrip.setViewPager(vpPager);
 
         // Get post details
         client = ProductHuntApplication.getRestClient();
@@ -147,6 +163,35 @@ public class DetailsActivity extends AppCompatActivity {
         if(techHunt != null){
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(techHunt.getRedirectUrl()));
             startActivity(browserIntent);
+        }
+    }
+
+    // Return the order of the fragment in the view pager
+    public class DetailsPagerAdapter extends FragmentPagerAdapter{
+        private String tabTitles[] = {"Comments", "Media"};
+
+        public DetailsPagerAdapter(FragmentManager fm){
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            if (position == 0){
+                return new CommentsFragment();
+            }else if (position == 1){
+                return new MediaFragment();
+            }else
+                return null;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return tabTitles[position];
+        }
+
+        @Override
+        public int getCount() {
+            return tabTitles.length;
         }
     }
 }

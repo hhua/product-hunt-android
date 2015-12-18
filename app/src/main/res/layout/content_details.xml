@@ -79,24 +79,25 @@
 
     </RelativeLayout>
     
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailsHeader">
 
-        <!--<com.astuetz.PagerSlidingTabStrip-->
-            <!--android:id="@+id/detailPageTabs"-->
-            <!--app:pstsShouldExpand="true"-->
-            <!--app:pstsTextAllCaps="true"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="48dp" />-->
+        <com.astuetz.PagerSlidingTabStrip
+            android:id="@+id/detailPageTabs"
+            app:pstsShouldExpand="true"
+            app:pstsTextAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
 
-        <!--<android.support.v4.view.ViewPager-->
-            <!--android:id="@+id/detailPageViewPager"-->
-            <!--android:layout_below="@+id/detailPageTabs"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0px"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@android:color/white" />-->
-    <!--</RelativeLayout>-->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/detailPageViewPager"
+            android:layout_below="@+id/detailPageTabs"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:background="@android:color/white" />
+    </RelativeLayout>
 
 </RelativeLayout>

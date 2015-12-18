@@ -22,4 +22,7 @@
     <string name="get_it">GET IT</string>
     <string name="title_activity_collection">CollectionActivity</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
