@@ -8,8 +8,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -64,15 +64,6 @@ public class DetailsActivity extends AppCompatActivity {
             return;
         }
 
-        // Get the view pager
-        ViewPager vpPager = (ViewPager) findViewById(R.id.detailPageViewPager);
-        // Set the view pager adapter to the pager
-        vpPager.setAdapter(new DetailsPagerAdapter(getSupportFragmentManager()));
-        // Find the pager sliding tabs
-        PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.detailPageTabs);
-        // Attach pager tabs to the viewpager
-        tabStrip.setViewPager(vpPager);
-
         // Get post details
         client = ProductHuntApplication.getRestClient();
         client.getPost(postId, new JsonHttpResponseHandler(){
@@ -83,6 +74,15 @@ public class DetailsActivity extends AppCompatActivity {
                 // process response
                 try {
                     techHunt = TechHunt.fromJSON(response.getJSONObject("post"));
+
+                    // Get the view pager
+                    ViewPager vpPager = (ViewPager) findViewById(R.id.detailPageViewPager);
+                    // Set the view pager adapter to the pager
+                    vpPager.setAdapter(new DetailsPagerAdapter(getSupportFragmentManager()));
+                    // Find the pager sliding tabs
+                    PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.detailPageTabs);
+                    // Attach pager tabs to the viewpager
+                    tabStrip.setViewPager(vpPager);
 
                     // show techHunt in views
                     TextView tvDetailsPageHeaderTitle = (TextView) findViewById(R.id.tvDetailsPageHeaderTitle);
@@ -179,7 +179,9 @@ public class DetailsActivity extends AppCompatActivity {
             if (position == 0){
                 return new CommentsFragment();
             }else if (position == 1){
-                return new MediaFragment();
+                MediaFragment mediaFragment = new MediaFragment();
+                mediaFragment.setMediaList(techHunt.getMediaList());
+                return mediaFragment;
             }else
                 return null;
         }

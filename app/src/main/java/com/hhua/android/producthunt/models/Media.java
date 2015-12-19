@@ -7,10 +7,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by ahua on 12/15/15.
- */
-public class Media {
+public class Media{
     private int id;
     private String type;
     private String imageUrl;
