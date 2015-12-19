@@ -18,6 +18,7 @@ public class TechHunt extends Post {
     private User hunter;
     private String redirectUrl;
     private List<Media> mediaList;
+    private List<Comment> comments;
     private int headerMediaId;
 
     public static TechHunt fromJSON(JSONObject jsonObject){
@@ -39,6 +40,7 @@ public class TechHunt extends Post {
                 techHunt.mediaList = Media.fromJSONArray(mediaJsonArray);
             }
             techHunt.headerMediaId = jsonObject.optInt("header_media_id");
+            techHunt.comments = Comment.fromJSONArray(jsonObject.getJSONArray("comments"));
         }catch(JSONException e){
             e.printStackTrace();
         }
@@ -107,5 +109,9 @@ public class TechHunt extends Post {
 
     public User getHunter() {
         return hunter;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
     }
 }

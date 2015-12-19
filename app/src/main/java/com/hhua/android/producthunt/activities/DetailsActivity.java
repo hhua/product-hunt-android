@@ -177,7 +177,9 @@ public class DetailsActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             if (position == 0){
-                return new CommentsFragment();
+                CommentsFragment commentsFragment = new CommentsFragment();
+                commentsFragment.setComments(techHunt.getComments());
+                return commentsFragment;
             }else if (position == 1){
                 MediaFragment mediaFragment = new MediaFragment();
                 mediaFragment.setMediaList(techHunt.getMediaList());
