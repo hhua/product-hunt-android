@@ -91,4 +91,17 @@ public class ProductHuntClient extends OAuthBaseClient {
         getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
         getClient().get(apiUrl, params, handler);
     }
+
+    // Get All notifications
+    // GET /v1/notifications
+    public void getAllNotifications(AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("notifications");
+
+        RequestParams params = new RequestParams();
+        params.put("per_page", 50);
+        params.put("search[type]", "all");
+
+        getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
+        getClient().get(apiUrl, params, handler);
+    }
 }
