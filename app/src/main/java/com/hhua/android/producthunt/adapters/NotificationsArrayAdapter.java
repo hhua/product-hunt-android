@@ -1,11 +1,16 @@
 package com.hhua.android.producthunt.adapters;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hhua.android.producthunt.R;
@@ -34,15 +39,28 @@ public class NotificationsArrayAdapter extends ArrayAdapter<Notification> {
 
         ivProfile.setImageResource(0);
 
-        tvNotificationBody.setText(buildNotificationBody(notification));
         tvNotificationCreatedAt.setText(notification.getCreatedAt());
 
+        // Set notification body
+        String[] bodyPieces = notification.getSentence().split(notification.getBody());
+        if (bodyPieces.length != 2){
+            tvNotificationBody.setText(notification.getSentence());
+        }else{
+            String notificationBody = "<b>" + bodyPieces[0] + "</b>" + notification.getBody() + bodyPieces[1];
+            tvNotificationBody.setText(Html.fromHtml(notificationBody));
+        }
+
+        // load profile image
         Picasso.with(getContext()).load(notification.getFromUser().getSmallProfileImageUrl()).fit().into(ivProfile);
 
-        return convertView;
-    }
+        if(notification.isSeen()){
+            LinearLayout itemNotification = (LinearLayout) convertView.findViewById(R.id.itemNotification);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Drawable drawable = new ColorDrawable(0x90ffffff);
+                itemNotification.setForeground(drawable);
+            }
+        }
 
-    private String buildNotificationBody(Notification notification){
-        return notification.getSentence();
+        return convertView;
     }
 }
