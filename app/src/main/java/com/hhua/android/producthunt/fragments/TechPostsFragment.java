@@ -15,7 +15,7 @@ import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
 import com.hhua.android.producthunt.activities.DetailsActivity;
-import com.hhua.android.producthunt.adapters.PostsEndlessScrollListener;
+import com.hhua.android.producthunt.adapters.EndlessScrollListener;
 import com.hhua.android.producthunt.adapters.TechHuntsArrayAdapter;
 import com.hhua.android.producthunt.models.Post;
 import com.hhua.android.producthunt.models.TechHunt;
@@ -74,7 +74,7 @@ public class TechPostsFragment extends Fragment {
                 android.R.color.holo_red_light);
 
         lvTechHunts = (ListView) view.findViewById(R.id.lvTechHunts);
-        lvTechHunts.setOnScrollListener(new PostsEndlessScrollListener() {
+        lvTechHunts.setOnScrollListener(new EndlessScrollListener() {
             @Override
             public boolean onLoadMore(int page, int totalItemsCount) {
                 customLoadMoreDataFromApi(page);

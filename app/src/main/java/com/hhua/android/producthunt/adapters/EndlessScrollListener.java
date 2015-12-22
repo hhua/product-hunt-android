@@ -2,8 +2,7 @@ package com.hhua.android.producthunt.adapters;
 
 import android.widget.AbsListView;
 
-public abstract class CollectionsEndlessScrollListener implements AbsListView.OnScrollListener {
-
+public abstract class EndlessScrollListener implements AbsListView.OnScrollListener{
     // The minimum amount of items to have below your current scroll position
     // before loading more.
     private int visibleThreshold = 5;
@@ -16,14 +15,14 @@ public abstract class CollectionsEndlessScrollListener implements AbsListView.On
     // Sets the starting page index
     private int startingPageIndex = 0;
 
-    public CollectionsEndlessScrollListener(){
+    public EndlessScrollListener() {
     }
 
-    public CollectionsEndlessScrollListener(int visibleThreshold) {
+    public EndlessScrollListener(int visibleThreshold) {
         this.visibleThreshold = visibleThreshold;
     }
 
-    public CollectionsEndlessScrollListener(int visibleThreshold, int startPage) {
+    public EndlessScrollListener(int visibleThreshold, int startPage) {
         this.visibleThreshold = visibleThreshold;
         this.startingPageIndex = startPage;
         this.currentPage = startPage;
@@ -33,7 +32,8 @@ public abstract class CollectionsEndlessScrollListener implements AbsListView.On
     // We are given a few useful parameters to help us work out if we need to load some more data,
     // but first we check if we are waiting for the previous load to finish.
     @Override
-    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount){
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount)
+    {
         // If the total item count is zero and the previous isn't, assume the
         // list is invalidated and should be reset back to initial state
         if (totalItemCount < previousTotalItemCount) {

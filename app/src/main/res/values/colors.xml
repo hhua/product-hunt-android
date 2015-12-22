@@ -10,6 +10,7 @@
     <color name="white">#ffffff</color>
 
     <color name="transparent">#00000000</color>
+    <color name="translucent">#90ffffff</color>
 
     <color name="post_title_color">#90000000</color>
     <color name="post_tagline_color">#50000000</color>

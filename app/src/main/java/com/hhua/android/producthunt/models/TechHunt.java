@@ -27,20 +27,29 @@ public class TechHunt extends Post {
         try{
             techHunt.id = jsonObject.getInt("id");
             techHunt.name = jsonObject.getString("name");
-            techHunt.tagline = jsonObject.getString("tagline");
-            techHunt.votesCount = jsonObject.getInt("votes_count");
-            techHunt.votedForPost = jsonObject.getJSONObject("current_user").optBoolean("voted_for_post");
-            techHunt.day = jsonObject.getString("day");
-            techHunt.featured = jsonObject.getBoolean("featured");
-            techHunt.hunter = User.fromJSON(jsonObject.getJSONObject("user"));
-            techHunt.redirectUrl = jsonObject.getString("redirect_url");
+            techHunt.tagline = jsonObject.optString("tagline");
+            techHunt.votesCount = jsonObject.optInt("votes_count");
+            if (!jsonObject.isNull("current_user")){
+                techHunt.votedForPost = jsonObject.getJSONObject("current_user").optBoolean("voted_for_post");
+            }
+
+            techHunt.day = jsonObject.optString("day");
+            techHunt.featured = jsonObject.optBoolean("featured");
+            if (!jsonObject.isNull("user")){
+                techHunt.hunter = User.fromJSON(jsonObject.getJSONObject("user"));
+            }
+
+            techHunt.redirectUrl = jsonObject.optString("redirect_url");
             JSONArray mediaJsonArray = jsonObject.optJSONArray("media");
 
             if (mediaJsonArray != null){
                 techHunt.mediaList = Media.fromJSONArray(mediaJsonArray);
             }
             techHunt.headerMediaId = jsonObject.optInt("header_media_id");
-            techHunt.comments = Comment.fromJSONArray(jsonObject.getJSONArray("comments"));
+
+            if (!jsonObject.isNull("comments")){
+                techHunt.comments = Comment.fromJSONArray(jsonObject.getJSONArray("comments"));
+            }
         }catch(JSONException e){
             e.printStackTrace();
         }

@@ -14,7 +14,7 @@ import android.view.MenuItem;
 
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.R;
-import com.hhua.android.producthunt.fragments.ActivitiesFragment;
+import com.hhua.android.producthunt.fragments.NotificationsFragment;
 import com.hhua.android.producthunt.fragments.CollectionsFragment;
 import com.hhua.android.producthunt.fragments.TechPostsFragment;
 
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = CollectionsFragment.class;
                 break;
             case R.id.nav_third_fragment:
-                fragmentClass = ActivitiesFragment.class;
+                fragmentClass = NotificationsFragment.class;
                 break;
             case R.id.sign_out:
                 ProductHuntApplication.getRestClient().clearAccessToken();
