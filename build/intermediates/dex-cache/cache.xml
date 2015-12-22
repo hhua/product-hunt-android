@@ -2,46 +2,116 @@
 <items version="2" >
 
     <item
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/classes-ba99e71922259492e2d63256c34ba89203a3e237.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/libs/codepath-utils.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="10901a5ef726eacf1b2443b7f38dc4cc9cd3f7d4">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/codepath-utils-e14339345a955c1a1caa303ef0200127e0269675.jar" />
+    </item>
+    <item
         jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-e06098ce5fcb6d75d79d19288916ac7849594ebc.jar" />
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/internal_impl-23.1.1-e06098ce5fcb6d75d79d19288916ac7849594ebc.jar" />
     </item>
     <item
-        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.astuetz/pagerslidingtabstrip/1.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/classes-fc5dec2fc7d47bd8a5da74fb7fe5ad02ca902fce.jar" />
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/classes-3f566ca33bdac8275eabd89b06fbd96c5c9ca39a.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/libs/codepath-oauth-0.4.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="e2bf2d92cfe90d44287c510d955d0c979631e99e">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/codepath-oauth-0.4.1-eed9b0ebc17bdacfea7890d31488fd7ef385cfa4.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/android-async-http-1.4.9-d89245b1266c7b6b9b939679ff78337f5757e498.jar" />
     </item>
     <item
         jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/classes-ea8b7e9a85ce0c38c7fcd90cab5e0fb4bb80d5c0.jar" />
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/classes-ea8b7e9a85ce0c38c7fcd90cab5e0fb4bb80d5c0.jar" />
     </item>
     <item
-        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/libs/scribe-codepath-0.0.3.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/classes-a4975c1514eb3224b599200a33813392bf548e64.jar" />
+        sha1="a580d06de954001f787e8d024bfcf931fe30bdda">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/scribe-codepath-0.0.3-753af577c1affe87e51a590ded8b6c3bf3f06075.jar" />
     </item>
     <item
         jar="/Users/ahua/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-164d042c4359d2d5c8530a992d0f2547adabf7b6.jar" />
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/support-annotations-23.1.1-164d042c4359d2d5c8530a992d0f2547adabf7b6.jar" />
     </item>
     <item
-        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/classes-ba99e71922259492e2d63256c34ba89203a3e237.jar" />
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/classes-a4975c1514eb3224b599200a33813392bf548e64.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/classes-fc5dec2fc7d47bd8a5da74fb7fe5ad02ca902fce.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08/activeandroid-3.1.0-SNAPSHOT.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/activeandroid-3.1.0-SNAPSHOT-afb3b4795abb1d2f45fbfcd689fcbc81d0836011.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/libs/org.apache.http.legacy.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="fa331331b626ee78c52bea16ce1e34b39e666ce5">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/org.apache.http.legacy-31120b3a125bee82aa91f7362f0695787434c21a.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/2.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="814fc0c3ec69a944add398217d90077301501a74">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/classes-b4a0daeb29304fb562fd687b4b0075ce0ffb316f.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/picasso-2.5.2-0741f3f8dbdc55fad88e4cf9a8ac7831bc70cbeb.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/release/httpclient-4.3.6-480ec6b5226557e02fb1124c9274250f86ad0c35.jar" />
     </item>
 
 </items>
