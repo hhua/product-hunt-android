@@ -11,6 +11,8 @@ import java.util.List;
  * Created by ahua on 12/10/15.
  */
 public class Collection {
+    public static final String COLLECTION_ID_MESSAGE = "com.hhua.android.producthunt.collection.COLLECTION_ID";
+
     private int id;
     private String name;
     private String title;

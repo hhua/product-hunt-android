@@ -15,7 +15,7 @@ public class Notification {
     private String sentence;
     private String type;
     private String body;
-    private TechHunt reference;
+    private int referenceId;
     private User fromUser;
     private String createdAt;
     private User toUser;
@@ -29,7 +29,7 @@ public class Notification {
             notification.sentence = jsonObject.getString("sentence");
             notification.type = jsonObject.getString("type");
             notification.body = jsonObject.getString("body");
-            notification.reference = TechHunt.fromJSON(jsonObject.getJSONObject("reference"));
+            notification.referenceId = jsonObject.getJSONObject("reference").getInt("id");
             notification.fromUser = User.fromJSON(jsonObject.getJSONObject("from_user"));
             //notification.toUser = User.fromJSON(jsonObject.getJSONObject("to_user"));
             notification.createdAt = jsonObject.getString("created_at");
@@ -80,8 +80,8 @@ public class Notification {
         return body;
     }
 
-    public TechHunt getReference() {
-        return reference;
+    public int getReferenceId() {
+        return referenceId;
     }
 
     public User getFromUser() {

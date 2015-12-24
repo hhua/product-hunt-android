@@ -36,8 +36,6 @@ public class CollectionsFragment extends Fragment {
     private List<Collection> collections;
     private CollectionsArrayAdapter collectionsAdapter;
 
-    public final static String EXTRA_COLLECTION_ID_MESSAGE = "com.hhua.android.producthunt.collectionsfragment.COLLECTION_ID";
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,7 +81,7 @@ public class CollectionsFragment extends Fragment {
                 Collection collection = collections.get(position);
 
                 Intent intent = new Intent(getContext(), CollectionActivity.class);
-                intent.putExtra(EXTRA_COLLECTION_ID_MESSAGE, collection.getId());
+                intent.putExtra(Collection.COLLECTION_ID_MESSAGE, collection.getId());
 
                 startActivity(intent);
             }

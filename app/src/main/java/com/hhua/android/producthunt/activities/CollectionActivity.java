@@ -19,7 +19,6 @@ import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
 import com.hhua.android.producthunt.adapters.TechHuntsArrayAdapter;
-import com.hhua.android.producthunt.fragments.CollectionsFragment;
 import com.hhua.android.producthunt.models.Collection;
 import com.hhua.android.producthunt.models.Post;
 import com.hhua.android.producthunt.models.TechHunt;
@@ -54,7 +53,7 @@ public class CollectionActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        int collectionId = intent.getIntExtra(CollectionsFragment.EXTRA_COLLECTION_ID_MESSAGE, -1);
+        int collectionId = intent.getIntExtra(Collection.COLLECTION_ID_MESSAGE, -1);
 
         setTitle("");
 

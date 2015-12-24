@@ -1,6 +1,7 @@
 package com.hhua.android.producthunt.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,13 +9,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
+import com.hhua.android.producthunt.activities.CollectionActivity;
+import com.hhua.android.producthunt.activities.DetailsActivity;
 import com.hhua.android.producthunt.adapters.NotificationsArrayAdapter;
+import com.hhua.android.producthunt.models.Collection;
 import com.hhua.android.producthunt.models.Notification;
+import com.hhua.android.producthunt.models.Post;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONException;
@@ -63,6 +69,23 @@ public class NotificationsFragment extends Fragment {
                 android.R.color.holo_red_light);
 
         lvNotifications = (ListView) view.findViewById(R.id.lvNotifications);
+        lvNotifications.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Notification notification = notificationsArrayAdapter.getItem(position);
+                Intent intent;
+
+                if(notification.getType().equals("Collection")){
+                    intent = new Intent(getContext(), CollectionActivity.class);
+                    intent.putExtra(Collection.COLLECTION_ID_MESSAGE, notification.getReferenceId());
+                }else{
+                    intent = new Intent(getContext(), DetailsActivity.class);
+                    intent.putExtra(Post.POST_ID_MESSAGE, notification.getReferenceId());
+                }
+
+                startActivity(intent);
+            }
+        });
         notifications = new ArrayList<Notification>();
         notificationsArrayAdapter = new NotificationsArrayAdapter(getContext(), notifications);
         lvNotifications.setAdapter(notificationsArrayAdapter);
