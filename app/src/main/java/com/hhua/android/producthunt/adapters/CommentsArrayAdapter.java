@@ -39,7 +39,7 @@ public class CommentsArrayAdapter extends ArrayAdapter<Comment> {
 
         String description = "<b>" + comment.getUser().getName() + "</b> " + " - " + comment.getUser().getHeadline();
         tvCommenterDescription.setText(Html.fromHtml(description));
-        tvCommentBody.setText(comment.getBody());
+        tvCommentBody.setText(Html.fromHtml(comment.getBody()));
         tvCommentCreatedAt.setText(comment.getCreatedAt());
 
         ImageView ivCommenterAvatar = (ImageView) convertView.findViewById(R.id.ivCommenterAvatar);
