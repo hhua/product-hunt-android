@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.hhua.android.producthunt.activities.UserActivity"
+    tools:showIn="@layout/activity_user">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:id="@+id/userPageHeader">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:scaleType="fitCenter"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="20dp"
+
+                    android:id="@+id/ivUserProfile"
+                    android:layout_alignParentBottom="true"
+                    app:riv_corner_radius="50dip"
+                    app:riv_border_width="0dip"
+                    app:riv_oval="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="45dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24dp"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:id="@+id/tvUserName"
+                        android:ellipsize="end"
+                        android:maxLines="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:id="@+id/tvUserDescription"
+                        android:ellipsize="end"
+                        android:maxLines="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:id="@+id/tvTwitterUserName"
+                        android:ellipsize="end"
+                        android:maxLines="1" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userPageHeader">
+
+        <com.astuetz.PagerSlidingTabStrip
+            android:id="@+id/userPageTabs"
+            app:pstsShouldExpand="true"
+            app:pstsTextAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/userPageViewPager"
+            android:layout_below="@+id/userPageTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white" />
+    </RelativeLayout>
+
+</RelativeLayout>

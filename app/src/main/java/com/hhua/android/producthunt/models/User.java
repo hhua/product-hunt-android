@@ -4,6 +4,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class User {
+    public static final String USER_ID_MESSAGE = "com.hhua.android.producthunt.user.USER_ID";
+
     private int id;
     private String name;
     private String headline;
@@ -13,6 +15,13 @@ public class User {
     private String smallProfileImageUrl;
     private String mediumProfileImageUrl;
     private String largeProfileImageUrl;
+    private String backgroundImageUrl;
+    private int votesCount;
+    private int postsCount;
+    private int makerCount;
+    private int collectionsCount;
+    private int followersCount;
+    private int followingCount;
 
     public static User fromJSON(JSONObject jsonObject){
         User user = new User();
@@ -27,6 +36,13 @@ public class User {
             user.smallProfileImageUrl = jsonObject.getJSONObject("image_url").getString("40px");
             user.mediumProfileImageUrl = jsonObject.getJSONObject("image_url").getString("60px");
             user.largeProfileImageUrl = jsonObject.getJSONObject("image_url").getString("96px");
+            user.backgroundImageUrl = jsonObject.getJSONObject("image_url").getString("original");
+            user.votesCount = jsonObject.optInt("votes_count");
+            user.postsCount = jsonObject.optInt("posts_count");
+            user.makerCount = jsonObject.optInt("maker_of_count");
+            user.collectionsCount = jsonObject.optInt("collections_count");
+            user.followersCount = jsonObject.optInt("followers_count");
+            user.followingCount = jsonObject.optInt("followings_count");
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -67,5 +83,33 @@ public class User {
 
     public String getLargeProfileImageUrl() {
         return largeProfileImageUrl;
+    }
+
+    public String getBackgroundImageUrl() {
+        return backgroundImageUrl;
+    }
+
+    public int getVotesCount() {
+        return votesCount;
+    }
+
+    public int getPostsCount() {
+        return postsCount;
+    }
+
+    public int getMakerCount() {
+        return makerCount;
+    }
+
+    public int getCollectionsCount() {
+        return collectionsCount;
+    }
+
+    public int getFollowersCount() {
+        return followersCount;
+    }
+
+    public int getFollowingCount() {
+        return followingCount;
     }
 }

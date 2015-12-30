@@ -45,6 +45,10 @@
         <activity
             android:name=".activities.CollectionActivity"
             android:label="@string/title_activity_collection"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activities.UserActivity"
+            android:label="@string/title_activity_user"
             android:theme="@style/AppTheme"></activity>
     </application>
 
