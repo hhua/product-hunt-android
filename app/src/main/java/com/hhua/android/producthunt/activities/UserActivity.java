@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,16 +17,23 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
+import com.hhua.android.producthunt.fragments.PostsFragment;
+import com.hhua.android.producthunt.models.TechHunt;
 import com.hhua.android.producthunt.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -34,6 +42,9 @@ public class UserActivity extends AppCompatActivity {
 
     private ProductHuntClient client;
     private User user;
+    private List<TechHunt> votedPosts;
+    private List<TechHunt> submittedPosts;
+    private List<TechHunt> makerPosts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,15 +73,6 @@ public class UserActivity extends AppCompatActivity {
                 try {
                     user = User.fromJSON(response.getJSONObject("user"));
 
-//                    // Get the view pager
-//                    ViewPager vpPager = (ViewPager) findViewById(R.id.userPageViewPager);
-//                    // Set the view pager adapter to the pager
-//                    vpPager.setAdapter(new UserPagerAdapter(getSupportFragmentManager()));
-//                    // Find the pager sliding tabs
-//                    PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.userPageTabs);
-//                    // Attach pager tabs to the viewpager
-//                    tabStrip.setViewPager(vpPager);
-
                     TextView tvUserName = (TextView) findViewById(R.id.tvUserName);
                     TextView tvUserDescription = (TextView) findViewById(R.id.tvUserDescription);
                     TextView tvTwitterUserName = (TextView) findViewById(R.id.tvTwitterUserName);
@@ -94,14 +96,36 @@ public class UserActivity extends AppCompatActivity {
 
                         @Override
                         public void onBitmapFailed(Drawable errorDrawable) {
-                            Log.d("DETAILS_BITMAP", "FAILED");
+                            Log.d("USER_BITMAP", "FAILED");
                         }
 
                         @Override
                         public void onPrepareLoad(Drawable placeHolderDrawable) {
-                            Log.d("DETAILS_BITMAP", "Prepare Load");
+                            Log.d("USER_BITMAP", "Prepare Load");
                         }
                     });
+
+                    // Load page slider data
+                    votedPosts = new ArrayList<TechHunt>();
+                    JSONArray votes = response.getJSONObject("user").getJSONArray("votes");
+                    for(int i = 0; i < votes.length(); i++){
+                        votedPosts.add(TechHunt.fromJSON(votes.getJSONObject(i).getJSONObject("post")));
+                    }
+
+                    submittedPosts = new ArrayList<TechHunt>();
+                    submittedPosts.addAll(TechHunt.fromJSONArray(response.getJSONObject("user").getJSONArray("posts")));
+
+                    makerPosts = new ArrayList<TechHunt>();
+                    makerPosts.addAll(TechHunt.fromJSONArray(response.getJSONObject("user").getJSONArray("maker_of")));
+
+                    // Get the view pager
+                    ViewPager vpPager = (ViewPager) findViewById(R.id.userPageViewPager);
+                    // Set the view pager adapter to the pager
+                    vpPager.setAdapter(new UserPagerAdapter(getSupportFragmentManager()));
+                    // Find the pager sliding tabs
+                    PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.userPageTabs);
+                    // Attach pager tabs to the viewpager
+                    tabStrip.setViewPager(vpPager);
 
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -132,7 +156,9 @@ public class UserActivity extends AppCompatActivity {
 
     // Return the order of the fragment in the view pager
     public class UserPagerAdapter extends FragmentPagerAdapter {
-        private String tabTitles[] = {"Upvoted", "Submitted", "Collections", "Made", "Following", "Followers"};
+        //private String tabTitles[] = {"Upvoted", "Submitted", "Collections", "Made", "Following", "Followers"};
+        private String tabTitles[] = {"Upvoted", "Submitted", "Made"};
+
 
         public UserPagerAdapter(FragmentManager fm){
             super(fm);
@@ -140,17 +166,22 @@ public class UserActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if (position == 0){
-                //CommentsFragment commentsFragment = new CommentsFragment();
-                //commentsFragment.setComments(techHunt.getComments());
-                //return commentsFragment;
-            }else if (position == 1){
-                //MediaFragment mediaFragment = new MediaFragment();
-                //mediaFragment.setMediaList(techHunt.getMediaList());
-                //return mediaFragment;
-            }else
-                return null;
-            return null;
+            switch (position){
+                case 0:
+                    PostsFragment votedPostsFragment = new PostsFragment();
+                    votedPostsFragment.setPosts(votedPosts);
+                    return votedPostsFragment;
+                case 1:
+                    PostsFragment submittedPostsFragment = new PostsFragment();
+                    submittedPostsFragment.setPosts(submittedPosts);
+                    return submittedPostsFragment;
+                case 2:
+                    PostsFragment makerPostsFragment = new PostsFragment();
+                    makerPostsFragment.setPosts(makerPosts);
+                    return makerPostsFragment;
+                default:
+                    return null;
+            }
         }
 
         @Override
