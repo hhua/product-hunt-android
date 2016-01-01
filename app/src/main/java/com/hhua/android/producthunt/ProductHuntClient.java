@@ -133,4 +133,22 @@ public class ProductHuntClient extends OAuthBaseClient {
         getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
         getClient().get(apiUrl, params, handler);
     }
+
+    // Get Followers
+    // GET /v1/users/:id/following
+    public void getFollowing(int userId, int olderId, AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("users/" + userId + "/following");
+
+        RequestParams params = new RequestParams();
+        params.put("per_page", 50);
+        params.put("user_id", userId);
+        params.put("order", "desc");
+
+        if (olderId > -1){
+            params.put("older", olderId);
+        }
+
+        getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
+        getClient().get(apiUrl, params, handler);
+    }
 }

@@ -28,8 +28,8 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
-public class FollowersFragment extends Fragment {
-    private final String LOG_D = "FollowersFragment";
+public class FollowingFragment extends Fragment {
+    private final String LOG_D = "FollowingFragment";
 
     private ProductHuntClient client;
     private ListView lvUsers;
@@ -86,13 +86,13 @@ public class FollowersFragment extends Fragment {
     }
 
     public void populateUsers(int olderId){
-        client.getFollowers(userId, olderId, new JsonHttpResponseHandler(){
+        client.getFollowing(userId, olderId, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d(LOG_D, response.toString());
 
                 try {
-                    List<Follower> followers = Follower.fromJSONArray(response.getJSONArray("followers"));
+                    List<Follower> followers = Follower.fromJSONArray(response.getJSONArray("following"));
                     followersArrayAdapter.addAll(followers);
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -104,6 +104,7 @@ public class FollowersFragment extends Fragment {
                 Log.d(LOG_D, errorResponse.toString());
             }
         });
+
     }
 
     public void setUserId(int userId) {
