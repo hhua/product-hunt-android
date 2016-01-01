@@ -1,7 +1,11 @@
 package com.hhua.android.producthunt.models;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class User {
     public static final String USER_ID_MESSAGE = "com.hhua.android.producthunt.user.USER_ID";
@@ -47,6 +51,22 @@ public class User {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public static List<User> fromJSONArray(JSONArray jsonArray){
+        List<User> users = new ArrayList<User>();
+
+        for (int i = 0; i < jsonArray.length(); i++){
+            try {
+                User user = User.fromJSON(jsonArray.getJSONObject(i));
+                users.add(user);
+            }catch (JSONException e){
+                e.printStackTrace();
+                continue;
+            }
+        }
+
+        return users;
     }
 
     public int getId() {

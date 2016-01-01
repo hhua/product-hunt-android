@@ -21,6 +21,7 @@ import com.astuetz.PagerSlidingTabStrip;
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
+import com.hhua.android.producthunt.fragments.FollowersFragment;
 import com.hhua.android.producthunt.fragments.PostsFragment;
 import com.hhua.android.producthunt.models.TechHunt;
 import com.hhua.android.producthunt.models.User;
@@ -157,7 +158,7 @@ public class UserActivity extends AppCompatActivity {
     // Return the order of the fragment in the view pager
     public class UserPagerAdapter extends FragmentPagerAdapter {
         //private String tabTitles[] = {"Upvoted", "Submitted", "Collections", "Made", "Following", "Followers"};
-        private String tabTitles[] = {"Upvoted", "Submitted", "Made"};
+        private String tabTitles[] = {"Upvoted", "Submitted", "Made", "Followers"};
 
 
         public UserPagerAdapter(FragmentManager fm){
@@ -179,6 +180,10 @@ public class UserActivity extends AppCompatActivity {
                     PostsFragment makerPostsFragment = new PostsFragment();
                     makerPostsFragment.setPosts(makerPosts);
                     return makerPostsFragment;
+                case 3:
+                    FollowersFragment followersFragment = new FollowersFragment();
+                    followersFragment.setUserId(user.getId());
+                    return followersFragment;
                 default:
                     return null;
             }

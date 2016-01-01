@@ -14,4 +14,7 @@
 
     <color name="post_title_color">#90000000</color>
     <color name="post_tagline_color">#50000000</color>
+
+    <color name="user_name_color">#90000000</color>
+    <color name="user_headline_color">#50000000</color>
 </resources>

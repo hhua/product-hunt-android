@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:scaleType="fitCenter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/ivProfile"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        app:riv_corner_radius="20dip"
+        app:riv_border_width="0dip"
+        app:riv_oval="true"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/llUserDescription"
+        android:layout_toEndOf="@+id/ivProfile">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/tvUserName"
+            android:ellipsize="end"
+            android:enabled="false"
+            android:lines="1"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/user_name_color"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/tvUserHeadline"
+            android:textSize="14dp"
+            android:textColor="@color/user_headline_color"
+            android:ellipsize="end"
+            android:lines="1" />
+    </LinearLayout>
+
+</RelativeLayout>
