@@ -24,6 +24,7 @@ import com.hhua.android.producthunt.R;
 import com.hhua.android.producthunt.fragments.FollowersFragment;
 import com.hhua.android.producthunt.fragments.FollowingFragment;
 import com.hhua.android.producthunt.fragments.PostsFragment;
+import com.hhua.android.producthunt.fragments.UserCollectionsFragment;
 import com.hhua.android.producthunt.models.TechHunt;
 import com.hhua.android.producthunt.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -159,7 +160,7 @@ public class UserActivity extends AppCompatActivity {
     // Return the order of the fragment in the view pager
     public class UserPagerAdapter extends FragmentPagerAdapter {
         //private String tabTitles[] = {"Upvoted", "Submitted", "Collections", "Made", "Following", "Followers"};
-        private String tabTitles[] = {"Upvoted", "Submitted", "Made", "Followers", "Following"};
+        private String tabTitles[] = {"Upvoted", "Submitted", "Made", "Collections", "Followers", "Following"};
 
 
         public UserPagerAdapter(FragmentManager fm){
@@ -182,10 +183,14 @@ public class UserActivity extends AppCompatActivity {
                     makerPostsFragment.setPosts(makerPosts);
                     return makerPostsFragment;
                 case 3:
+                    UserCollectionsFragment userCollectionsFragment = new UserCollectionsFragment();
+                    userCollectionsFragment.setUserId(user.getId());
+                    return userCollectionsFragment;
+                case 4:
                     FollowersFragment followersFragment = new FollowersFragment();
                     followersFragment.setUserId(user.getId());
                     return followersFragment;
-                case 4:
+                case 5:
                     FollowingFragment followingFragment = new FollowingFragment();
                     followingFragment.setUserId(user.getId());
                     return followingFragment;

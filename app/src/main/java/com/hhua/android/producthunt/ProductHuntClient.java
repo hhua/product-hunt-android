@@ -151,4 +151,22 @@ public class ProductHuntClient extends OAuthBaseClient {
         getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
         getClient().get(apiUrl, params, handler);
     }
+
+    // Get Collections created by user
+    // GET /v1/users/:id/collections
+    public void getCollectionsByUser(int userId, int page, AsyncHttpResponseHandler handler){
+        String apiUrl = getApiUrl("users/" + userId + "/collections");
+        RequestParams params = new RequestParams();
+
+        params.put("sort_by", "created_at");
+        params.put("order", "desc");
+        params.put("per_page", 50);
+
+        if (page > 0) {
+            params.put("page", page);
+        }
+
+        getClient().addHeader("Authorization", "Bearer " + getClient().getAccessToken().getToken());
+        getClient().get(apiUrl, params, handler);
+    }
 }
