@@ -14,7 +14,7 @@ import com.hhua.android.producthunt.R;
 public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient> {
     private static final String AUTHORIZATION_REDIRECT_URL = "https://github.com/hhua/product-hunt-android";
     private static final String RESPONSE_ACCESS_GRANT = "code";
-    private static final String LOG_D = "LOGIN";
+    private static final String LOG_D = "LoginActivity";
     private static final String LOG_AUTHROIZE = "LOGIN_AUTHORIZE";
 
     @Override
