@@ -30,6 +30,7 @@ import com.hhua.android.producthunt.models.Media;
 import com.hhua.android.producthunt.models.Post;
 import com.hhua.android.producthunt.models.TechHunt;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.parse.ParseAnalytics;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -51,6 +52,8 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.transparent_toolbar);
         setSupportActionBar(toolbar);
+
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

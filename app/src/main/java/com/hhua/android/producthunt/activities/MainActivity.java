@@ -14,9 +14,10 @@ import android.view.MenuItem;
 
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.R;
-import com.hhua.android.producthunt.fragments.NotificationsFragment;
 import com.hhua.android.producthunt.fragments.CollectionsFragment;
+import com.hhua.android.producthunt.fragments.NotificationsFragment;
 import com.hhua.android.producthunt.fragments.TechPostsFragment;
+import com.parse.ParseAnalytics;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

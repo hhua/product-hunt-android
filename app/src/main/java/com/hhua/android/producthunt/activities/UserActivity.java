@@ -28,6 +28,7 @@ import com.hhua.android.producthunt.fragments.UserCollectionsFragment;
 import com.hhua.android.producthunt.models.TechHunt;
 import com.hhua.android.producthunt.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.parse.ParseAnalytics;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -55,6 +56,8 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.transparent_toolbar);
         setSupportActionBar(toolbar);
+
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();

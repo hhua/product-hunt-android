@@ -10,6 +10,7 @@ import android.view.View;
 import com.codepath.oauth.OAuthLoginActionBarActivity;
 import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
+import com.parse.ParseAnalytics;
 
 public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient> {
     private static final String AUTHORIZATION_REDIRECT_URL = "https://github.com/hhua/product-hunt-android";
@@ -23,6 +24,8 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
         setContentView(R.layout.activity_login);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
     }
 
     @Override
@@ -56,7 +59,6 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
     public void onLoginSuccess() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
-        //Toast.makeText(this, "Success!", Toast.LENGTH_LONG).show();
 
         Log.d(LOG_D, "Success!");
     }
