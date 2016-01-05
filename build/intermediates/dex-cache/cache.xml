@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.3.1-SNAPSHOT/685886f3cd69203c71321fdace640164e45d4d4e/bolts-applinks-1.3.1-SNAPSHOT.jar"
+        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.12.1-SNAPSHOT/112d53a8c01e708ba6684e932f2e044fee20a65e/parse-android-1.12.1-SNAPSHOT.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="685886f3cd69203c71321fdace640164e45d4d4e">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.3.1-SNAPSHOT-9ea0c0438231d69af05d8a336ce6c8ea2d6ef498.jar" />
+        sha1="112d53a8c01e708ba6684e932f2e044fee20a65e">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/parse-android-1.12.1-SNAPSHOT-6de78956b3ea759140a739bfc468a6399f879e29.jar" />
     </item>
     <item
         jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.3.1-SNAPSHOT/856f8443160d151a011e406556cedcb08150b55b/bolts-tasks-1.3.1-SNAPSHOT.jar"
@@ -16,11 +16,11 @@
         <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.3.1-SNAPSHOT-0adf191975dca2dc58efa10bac0b016dc9f9648c.jar" />
     </item>
     <item
-        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.12.1-SNAPSHOT/112d53a8c01e708ba6684e932f2e044fee20a65e/parse-android-1.12.1-SNAPSHOT.jar"
+        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.3.1-SNAPSHOT/685886f3cd69203c71321fdace640164e45d4d4e/bolts-applinks-1.3.1-SNAPSHOT.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="112d53a8c01e708ba6684e932f2e044fee20a65e">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/parse-android-1.12.1-SNAPSHOT-6de78956b3ea759140a739bfc468a6399f879e29.jar" />
+        sha1="685886f3cd69203c71321fdace640164e45d4d4e">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/bolts-applinks-1.3.1-SNAPSHOT-9ea0c0438231d69af05d8a336ce6c8ea2d6ef498.jar" />
     </item>
 
 </items>
