@@ -15,6 +15,9 @@
     <string name="login_label">Login</string>
     <string name="title_activity_details">DetailsActivity</string>
 
+    <string name="give_me_five_stars">Give me 5 stars</string>
+    <string name="provide_feedback">Give me feedback</string>
+    <string name="follow_me_twitter">Follow @hhua_ on Twitter</string>
     <string name="sign_out">Sign Out</string>
 
     <!-- DetailsActivity -->

@@ -16,22 +16,39 @@
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/ic_activities"
             android:title="@string/activities" />
-        <!--<item android:title="Sub items">-->
-            <!--<menu>-->
-                <!--<item-->
-                    <!--android:icon="@drawable/ic_settings"-->
-                    <!--android:title="@string/settings" />-->
-            <!--</menu>-->
-        <!--</item>-->
+        <item android:title="ACCOUNT">
+            <menu>
+                <item
+                    android:id="@+id/sign_out"
+                    android:icon="@drawable/ic_signout"
+                    android:title="@string/sign_out" />
+            </menu>
+        </item>
+        <item android:title="GET IN TOUCH">
+            <menu>
+                <item
+                    android:id="@+id/follow_me_twitter"
+                    android:icon="@drawable/ic_follow_twitter"
+                    android:title="@string/follow_me_twitter" />
+                <item
+                    android:id="@+id/provide_feedback"
+                    android:icon="@drawable/ic_feedback"
+                    android:title="@string/provide_feedback" />
+                <item
+                    android:id="@+id/give_me_five_stars"
+                    android:icon="@drawable/ic_rate_5_stars"
+                    android:title="@string/give_me_five_stars" />
+            </menu>
+        </item>
 
     </group>
 
-    <group android:id="@+id/menuOthers"
-        android:checkableBehavior="single">
-        <item
-            android:id="@+id/sign_out"
-            android:icon="@drawable/ic_signout"
-            android:title="@string/sign_out" />
-    </group>
+    <!--<group android:id="@+id/menuOthers"-->
+        <!--android:checkableBehavior="single">-->
+        <!--<item-->
+            <!--android:id="@+id/sign_out"-->
+            <!--android:icon="@drawable/ic_signout"-->
+            <!--android:title="@string/sign_out" />-->
+    <!--</group>-->
 
 </menu>

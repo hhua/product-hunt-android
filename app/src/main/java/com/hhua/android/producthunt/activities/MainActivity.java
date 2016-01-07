@@ -2,6 +2,7 @@ package com.hhua.android.producthunt.activities;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -138,6 +139,22 @@ public class MainActivity extends AppCompatActivity {
                 ProductHuntApplication.getRestClient().clearAccessToken();
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
+                return;
+            case R.id.follow_me_twitter:
+                Intent twitterIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/hhua_"));
+                startActivity(twitterIntent);
+                return;
+            case R.id.provide_feedback:
+                String uriText =
+                        "mailto:hhua.dev@gmail.com" +
+                                "?subject=" + Uri.encode("Feedback on Product Hunt Android Client") +
+                                "&body=" + Uri.encode("");
+
+                Uri uri = Uri.parse(uriText);
+
+                Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
+                sendIntent.setData(uri);
+                startActivity(Intent.createChooser(sendIntent, "Send email"));
                 return;
             default:
                 fragmentClass = TechPostsFragment.class;
