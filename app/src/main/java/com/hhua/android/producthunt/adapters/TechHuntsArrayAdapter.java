@@ -24,7 +24,7 @@ public class TechHuntsArrayAdapter extends ArrayAdapter<TechHunt> {
     }
 
     // viewHolder Pattern
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, final ViewGroup parent){
         final TechHunt techHunt = getItem(position);
 
         if (convertView == null){
@@ -65,7 +65,7 @@ public class TechHuntsArrayAdapter extends ArrayAdapter<TechHunt> {
                     Intent intent = new Intent(getContext(), UserActivity.class);
                     intent.putExtra(User.USER_ID_MESSAGE, userId);
 
-                    getContext().startActivity(intent);
+                    parent.getContext().startActivity(intent);
                 }
             }
         });

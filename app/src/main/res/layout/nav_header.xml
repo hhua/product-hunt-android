@@ -2,10 +2,71 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="192dp"
-    android:background="?attr/colorPrimaryDark"
-    android:padding="16dp"
+    android:background="@color/transparent"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    android:orientation="vertical"
     android:gravity="bottom">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="@drawable/gradient">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:scaleType="fitCenter"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/ivDrawerUserProfile"
+            android:src="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            app:riv_corner_radius="40dip"
+            app:riv_border_width="0dip"
+            app:riv_oval="true"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/llDrawerUserDescription"
+            android:layout_toEndOf="@+id/ivDrawerUserProfile">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/tvDrawerUserName"
+                android:ellipsize="end"
+                android:enabled="false"
+                android:lines="1"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/tvDrawerUserHeadline"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:ellipsize="end"
+                android:lines="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/tvDrawerUserTwitterName"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:ellipsize="end"
+                android:lines="1" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

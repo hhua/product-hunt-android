@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.12.1-SNAPSHOT/7670530bba287c0eee93678fc9be89b152019e5c/parse-android-1.12.1-SNAPSHOT.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="7670530bba287c0eee93678fc9be89b152019e5c">
-        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/parse-android-1.12.1-SNAPSHOT-649ae602f20228bbde150a29c6415d9d5eb3c868.jar" />
-    </item>
-    <item
         jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.3.1-SNAPSHOT/d4d48dff0140c595dd1cee287441bf99042f204f/bolts-applinks-1.3.1-SNAPSHOT.jar"
         jumboMode="false"
         revision="23.0.0"
@@ -21,6 +14,13 @@
         revision="23.0.0"
         sha1="bbb9f94ac8d4d05d57d4d0b7e18f765302e39652">
         <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.3.1-SNAPSHOT-dc033fabc65562862743727b883dc89f33f13cf7.jar" />
+    </item>
+    <item
+        jar="/Users/ahua/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.12.1-SNAPSHOT/1c813e3a0b65b24b6e8117541f5d0cd3f8a3368e/parse-android-1.12.1-SNAPSHOT.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="1c813e3a0b65b24b6e8117541f5d0cd3f8a3368e">
+        <dex dex="/Users/ahua/Dropbox/workspace_github/Android/product-hunt-android/app/build/intermediates/pre-dexed/debug/parse-android-1.12.1-SNAPSHOT-30ae67af83b4b6183b427496dc232278222fab9c.jar" />
     </item>
 
 </items>

@@ -2,6 +2,9 @@ package com.hhua.android.producthunt.activities;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,14 +14,27 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.hhua.android.producthunt.ProductHuntApplication;
 import com.hhua.android.producthunt.R;
 import com.hhua.android.producthunt.fragments.CollectionsFragment;
 import com.hhua.android.producthunt.fragments.NotificationsFragment;
 import com.hhua.android.producthunt.fragments.TechPostsFragment;
+import com.hhua.android.producthunt.models.User;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.parse.ParseAnalytics;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle drawerToggle;
+
+    private final String LOG_D = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +68,6 @@ public class MainActivity extends AppCompatActivity {
         // Setup drawer view
         setupDrawerContent(nvDrawer);
 
-        // Set up sign out button
-//        Menu menu = nvDrawer.getMenu();
-//        MenuItem menuItem = menu.findItem(R.id.sign_out);
-//        View actionView = MenuItemCompat.getActionView(menuItem);
-//        actionView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ProductHuntApplication.getRestClient().clearAccessToken();
-//            }
-//        });
 
     }
 
@@ -96,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
+        // Set navigation view header
+        loadNavigationViewHeader(navigationView);
+
+        // Set navigation view body
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -178,6 +190,66 @@ public class MainActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle setupDrawerToggle() {
         return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+    }
+
+    private void loadNavigationViewHeader(final NavigationView navigationView){
+        ProductHuntApplication.getRestClient().getSettings(new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Log.d(LOG_D, response.toString());
+
+                try {
+                    final User me = User.fromJSON(response.getJSONObject("user"));
+
+                    ImageView userProfileImage = (ImageView) navigationView.findViewById(R.id.ivDrawerUserProfile);
+                    TextView tvDrawerUserName = (TextView) navigationView.findViewById(R.id.tvDrawerUserName);
+                    TextView tvDrawerUserHeadline = (TextView) navigationView.findViewById(R.id.tvDrawerUserHeadline);
+                    TextView tvDrawerUserTwitterName = (TextView) navigationView.findViewById(R.id.tvDrawerUserTwitterName);
+
+                    tvDrawerUserName.setText(me.getName());
+                    tvDrawerUserHeadline.setText(me.getHeadline());
+                    tvDrawerUserTwitterName.setText("@" + me.getTwitterName());
+                    Picasso.with(getApplicationContext()).load(me.getLargeProfileImageUrl()).fit().into(userProfileImage);
+
+
+                    userProfileImage.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int userId = me.getId();
+
+                            Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+                            intent.putExtra(User.USER_ID_MESSAGE, userId);
+
+                            startActivity(intent);
+                        }
+                    });
+
+                    Picasso.with(getApplicationContext()).load(me.getBackgroundImageUrl()).resize(300, 200).centerCrop().into(new Target() {
+                        @Override
+                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                            navigationView.getHeaderView(0).setBackground(new BitmapDrawable(getApplicationContext().getResources(), bitmap));
+                        }
+
+                        @Override
+                        public void onBitmapFailed(Drawable errorDrawable) {
+                            Log.d("NAV_HEADER_BITMAP", "FAILED");
+                        }
+
+                        @Override
+                        public void onPrepareLoad(Drawable placeHolderDrawable) {
+                            Log.d("NAV_HEADER_BITMAP", "Prepare Load");
+                        }
+                    });
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d(LOG_D, errorResponse.toString());
+            }
+        });
     }
 
 }
