@@ -43,11 +43,6 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
                     Log.i(LOG_AUTHROIZE, "The user doesn't allow authorization.");
                 }else {
                     Log.i(LOG_AUTHROIZE, "Authorization code received: " + authorizationCode);
-
-
-                    // Request access token
-                    //getClient().authorize(uri);
-
                 }
             }
         }
@@ -59,8 +54,6 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
     public void onLoginSuccess() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
-
-        Log.d(LOG_D, "Success!");
     }
 
     // OAuth authentication flow failed, handle the error
@@ -68,7 +61,6 @@ public class LoginActivity extends OAuthLoginActionBarActivity<ProductHuntClient
     @Override
     public void onLoginFailure(Exception e) {
         e.printStackTrace();
-        Log.d(LOG_D, "Failure!");
     }
 
     // Click handler method for the button used to start OAuth flow

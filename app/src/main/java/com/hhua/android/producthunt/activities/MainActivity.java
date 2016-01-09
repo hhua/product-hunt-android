@@ -14,7 +14,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -196,8 +195,6 @@ public class MainActivity extends AppCompatActivity {
         ProductHuntApplication.getRestClient().getSettings(new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d(LOG_D, response.toString());
-
                 try {
                     final User me = User.fromJSON(response.getJSONObject("user"));
 
@@ -232,12 +229,10 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onBitmapFailed(Drawable errorDrawable) {
-                            Log.d("NAV_HEADER_BITMAP", "FAILED");
                         }
 
                         @Override
                         public void onPrepareLoad(Drawable placeHolderDrawable) {
-                            Log.d("NAV_HEADER_BITMAP", "Prepare Load");
                         }
                     });
                 }catch (JSONException e){
@@ -247,7 +242,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d(LOG_D, errorResponse.toString());
             }
         });
     }

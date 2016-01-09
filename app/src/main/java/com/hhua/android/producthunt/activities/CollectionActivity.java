@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -61,7 +60,7 @@ public class CollectionActivity extends AppCompatActivity {
         setTitle("");
 
         if (collectionId == -1){
-            Log.d(LOG_D, "Collection ID (" + collectionId + ") incorrect!");
+            // Collection ID incorrect
             return;
         }
 
@@ -87,8 +86,6 @@ public class CollectionActivity extends AppCompatActivity {
         client.getCollection(collectionId, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d(LOG_D, response.toString());
-
                 try{
                     collection = Collection.fromJSON(response.getJSONObject("collection"));
 
@@ -106,12 +103,10 @@ public class CollectionActivity extends AppCompatActivity {
 
                             @Override
                             public void onBitmapFailed(Drawable errorDrawable) {
-                                Log.d("COLLECTION_BITMAP", "FAILED");
                             }
 
                             @Override
                             public void onPrepareLoad(Drawable placeHolderDrawable) {
-                                Log.d("COLLECTION_BITMAP", "FAILED");
                             }
                         });
                     }
@@ -127,7 +122,6 @@ public class CollectionActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d(LOG_D, errorResponse.toString());
             }
         });
     }

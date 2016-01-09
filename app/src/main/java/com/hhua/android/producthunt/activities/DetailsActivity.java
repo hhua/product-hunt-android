@@ -13,7 +13,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -63,7 +62,7 @@ public class DetailsActivity extends AppCompatActivity {
         setTitle("");
 
         if (postId == -1){
-            Log.d(LOG_D, "Post ID incorrect!");
+            // Post ID incorrect
             return;
         }
 
@@ -72,7 +71,6 @@ public class DetailsActivity extends AppCompatActivity {
         client.getPost(postId, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d(LOG_D, response.toString());
 
                 // process response
                 try {
@@ -127,12 +125,10 @@ public class DetailsActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onBitmapFailed(Drawable errorDrawable) {
-                                    Log.d("DETAILS_BITMAP", "FAILED");
                                 }
 
                                 @Override
                                 public void onPrepareLoad(Drawable placeHolderDrawable) {
-                                    Log.d("DETAILS_BITMAP", "Prepare Load");
                                 }
                             });
                         }
@@ -144,7 +140,6 @@ public class DetailsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d(LOG_D, errorResponse.toString());
             }
         });
 

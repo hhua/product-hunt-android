@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,8 +118,6 @@ public class TechPostsFragment extends Fragment {
         client.getTechHunts(daysAgo, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d("DEBUG", response.toString());
-
                 try {
                     List<TechHunt> techHunts = TechHunt.fromJSONArray(response.getJSONArray("posts"));
                     techHuntsAdapter.addAll(techHunts);
@@ -132,7 +129,6 @@ public class TechPostsFragment extends Fragment {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d("DEBUG", errorResponse.toString());
                 daysBefore--;
             }
 
@@ -144,8 +140,6 @@ public class TechPostsFragment extends Fragment {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d("DEBUG", response.toString());
-
                 try {
                     List<TechHunt> techHunts = TechHunt.fromJSONArray(response.getJSONArray("posts"));
                     techHuntsAdapter.clear();
@@ -160,7 +154,6 @@ public class TechPostsFragment extends Fragment {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d("DEBUG", errorResponse.toString());
             }
         });
     }

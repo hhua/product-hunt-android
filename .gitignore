@@ -60,3 +60,7 @@ local.properties
 
 # PDT-specific
 .buildpath
+
+# Configuration
+config
+config/**
