@@ -21,7 +21,7 @@ public class ProductHuntApplication extends com.activeandroid.app.Application {
     public void onCreate() {
         super.onCreate();
         ProductHuntApplication.context = this;
-        Parse.initialize(this, "3RObJtm1duandsuMRXWIa8dd1g7gMvhs2o8REccS", "hOUzaf5p3eR6AchyngeCXt2FIC8ThjF26cSjgMtr");
+        Parse.initialize(this, "Parse Application ID", "Parse client key");
     }
 
 
