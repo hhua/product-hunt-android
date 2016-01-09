@@ -17,10 +17,12 @@ import com.hhua.android.producthunt.ProductHuntClient;
 import com.hhua.android.producthunt.R;
 import com.hhua.android.producthunt.activities.CollectionActivity;
 import com.hhua.android.producthunt.activities.DetailsActivity;
+import com.hhua.android.producthunt.activities.UserActivity;
 import com.hhua.android.producthunt.adapters.NotificationsArrayAdapter;
 import com.hhua.android.producthunt.models.Collection;
 import com.hhua.android.producthunt.models.Notification;
 import com.hhua.android.producthunt.models.Post;
+import com.hhua.android.producthunt.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONException;
@@ -78,6 +80,9 @@ public class NotificationsFragment extends Fragment {
                 if(notification.getType().equals("Collection")){
                     intent = new Intent(getContext(), CollectionActivity.class);
                     intent.putExtra(Collection.COLLECTION_ID_MESSAGE, notification.getReferenceId());
+                }else if(notification.getType().equals("User")){
+                    intent = new Intent(getContext(), UserActivity.class);
+                    intent.putExtra(User.USER_ID_MESSAGE, notification.getReferenceId());
                 }else{
                     intent = new Intent(getContext(), DetailsActivity.class);
                     intent.putExtra(Post.POST_ID_MESSAGE, notification.getReferenceId());
@@ -123,8 +128,6 @@ public class NotificationsFragment extends Fragment {
         client.getAllNotifications(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d("DEBUG", response.toString());
-
                 try{
                     List<Notification> notificationsList = Notification.fromJSONArray(response.getJSONArray("notifications"));
                     notificationsArrayAdapter.addAll(notificationsList);
@@ -135,7 +138,6 @@ public class NotificationsFragment extends Fragment {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d("DEBUG", errorResponse.toString());
             }
         });
     }
