@@ -101,8 +101,7 @@ public class NotificationsFragment extends Fragment {
         client.getAllNotifications(new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d("DEBUG", response.toString());
-
+                Log.d("Notifications", response.toString());
                 try{
                     List<Notification> notifications = Notification.fromJSONArray(response.getJSONArray("notifications"));
                     notificationsArrayAdapter.clear();
@@ -116,7 +115,6 @@ public class NotificationsFragment extends Fragment {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d("DEBUG", errorResponse.toString());
             }
         });
     }

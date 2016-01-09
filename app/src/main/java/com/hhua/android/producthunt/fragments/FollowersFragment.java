@@ -3,7 +3,6 @@ package com.hhua.android.producthunt.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,8 +88,6 @@ public class FollowersFragment extends Fragment {
         client.getFollowers(userId, olderId, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d(LOG_D, response.toString());
-
                 try {
                     List<Follower> followers = Follower.fromJSONArray(response.getJSONArray("followers"));
                     followersArrayAdapter.addAll(followers);
@@ -101,7 +98,6 @@ public class FollowersFragment extends Fragment {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                Log.d(LOG_D, errorResponse.toString());
             }
         });
     }
