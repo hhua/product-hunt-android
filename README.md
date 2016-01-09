@@ -1,6 +1,16 @@
-# Product Hunt Android App
+# Product Hunt Android
+This is an open-source effort to build an Android client for [Product Hunt](https://www.producthunt.com/).
 
-# Author
+![Screenshot 1](public/img/products.png)
+![Screenshot 2](public/img/collections.png)
+![Screenshot 3](public/img/collection.png)
+
+## Why I am building this?
+
+
+## Credits 
+
+
+## Author
 * [Han Hua](https://twitter.com/hhua_)
-* [Buy me a beer](https://www.paypal.me/hhua/5)
-
+* [How to buy me a beer](https://www.paypal.me/hhua/5)
