@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.codepath.oauth.OAuthBaseClient;
 import com.hhua.android.producthunt.network.ProductHuntApi;
+import com.hhua.android.producthunt.utils.ApiConfig;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -11,11 +12,11 @@ import org.scribe.builder.api.Api;
 
 public class ProductHuntClient extends OAuthBaseClient {
     public static final Class<? extends Api> REST_API_CLASS = ProductHuntApi.class;
-    public static final String REST_URL = "https://api.producthunt.com/v1";
-    public static final String REST_CONSUMER_KEY = "Your Product Hunt Consumer Key";
-    public static final String REST_CONSUMER_SECRET = "Your Product Hunt Consumer Secret";
+    public static final String REST_URL = ApiConfig.PRODUCT_API_ENDPOINT;
+    public static final String REST_CONSUMER_KEY = ApiConfig.PRODUCT_API_CONSUMER_KEY;
+    public static final String REST_CONSUMER_SECRET = ApiConfig.PRODUCT_API_CONSUMER_SECRET;
 
-    public static final String REST_CALLBACK_URL = "Your Product Hunt Callback Url";
+    public static final String REST_CALLBACK_URL = ApiConfig.PRODUCT_API_CALLBACK_URL;
 
     public ProductHuntClient(Context context) {
         super(context, REST_API_CLASS, REST_URL, REST_CONSUMER_KEY, REST_CONSUMER_SECRET, REST_CALLBACK_URL);

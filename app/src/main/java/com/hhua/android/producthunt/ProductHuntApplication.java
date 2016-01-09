@@ -3,6 +3,7 @@ package com.hhua.android.producthunt;
 
 import android.content.Context;
 
+import com.hhua.android.producthunt.utils.ApiConfig;
 import com.parse.Parse;
 
 /*
@@ -21,7 +22,7 @@ public class ProductHuntApplication extends com.activeandroid.app.Application {
     public void onCreate() {
         super.onCreate();
         ProductHuntApplication.context = this;
-        Parse.initialize(this, "Parse Application ID", "Parse client key");
+        Parse.initialize(this, ApiConfig.PARSE_API_APPLICATION_ID, ApiConfig.PARSE_API_CLIENT_KEY);
     }
 
 
