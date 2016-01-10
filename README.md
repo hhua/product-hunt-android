@@ -57,5 +57,5 @@ All bugs and ideas are more than welcome to be added [here](https://github.com/h
 * In case you want to [buy me a beer (actually non-alcohol drink preferred)](https://www.paypal.me/hhua/5)
 
 ## License
-See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
+See the [LICENSE](https://github.com/hhua/product-hunt-android/blob/master/LICENSE.md) file for license rights and limitations (MIT).
 
