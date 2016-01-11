@@ -54,7 +54,7 @@ All bugs and ideas are more than welcome to be added [here](https://github.com/h
 
 ## About Author
 * Built with <3 by [Han Hua](https://twitter.com/hhua_) / [hhua.dev@gmail.com](mailto:hhua.dev@gmail.com)
-* In case you want to [buy me a beer (actually non-alcohol drink preferred)](https://www.paypal.me/hhua/5)
+* In case you want to [buy me a beer (actually non-alcohol drink preferred)](https://github.com/hhua/product-hunt-android/tree/master/buy-me-a-beer.md)
 
 ## License
 See the [LICENSE](https://github.com/hhua/product-hunt-android/blob/master/LICENSE.md) file for license rights and limitations (MIT).
