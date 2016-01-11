@@ -1,4 +1,4 @@
-# Product Hunt Android
+# Oh My Product Hunt
 This is an open-source effort to build an [Android app](https://play.google.com/store/apps/details?id=com.hhua.android.producthunt) for [Product Hunt](https://www.producthunt.com/).
 
 ![Screenshots](https://github.com/hhua/product-hunt-android/blob/master/public/img/screenshots_mixed.png?raw=true)
