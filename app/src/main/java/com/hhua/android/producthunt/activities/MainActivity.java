@@ -155,6 +155,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent twitterIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/hhua_"));
                 startActivity(twitterIntent);
                 return;
+            case R.id.give_me_five_stars:
+                Intent googlePlayIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.hhua.android.producthunt"));
+                startActivity(googlePlayIntent);
+                return;
             case R.id.provide_feedback:
                 String uriText =
                         "mailto:hhua.dev@gmail.com" +
