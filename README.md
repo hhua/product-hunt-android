@@ -22,7 +22,7 @@ Download me on [Google Play](https://play.google.com/store/apps/details?id=com.h
 
 ## Notable Issues
 
-1. You cannot vote/comment on a post yet. The app is waiting for whitelisting by [Product Hunt](https://www.producthunt.com/). 
+1. You cannot vote/comment on a post yet. Updated: The app cannot get the write access. :-< Really sorry guys! 
 
 More problems are tracked [here](https://github.com/hhua/product-hunt-android/issues)
 
