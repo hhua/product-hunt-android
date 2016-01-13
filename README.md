@@ -30,7 +30,7 @@ More problems are tracked [here](https://github.com/hhua/product-hunt-android/is
 
 All bugs and ideas are more than welcome to be added [here](https://github.com/hhua/product-hunt-android/issues)
 
-**Documentation Coming Soon**
+Check out [how to contribute to "Oh My Product Hunt"](https://github.com/hhua/product-hunt-android/tree/master/CONTRIBUTE.md)
 
 ## Related Blog Posts
 
