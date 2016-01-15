@@ -1,6 +1,7 @@
 package com.hhua.android.producthunt.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.hhua.android.producthunt.R;
+import com.hhua.android.producthunt.activities.UserActivity;
 import com.hhua.android.producthunt.models.Comment;
+import com.hhua.android.producthunt.models.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -26,8 +29,8 @@ public class CommentsArrayAdapter extends ArrayAdapter<Comment> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        Comment comment = getItem(position);
+    public View getView(int position, View convertView, final ViewGroup parent) {
+        final Comment comment = getItem(position);
 
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_comment, parent, false);
@@ -46,6 +49,19 @@ public class CommentsArrayAdapter extends ArrayAdapter<Comment> {
         ivCommenterAvatar.setImageResource(0);
 
         Picasso.with(getContext()).load(comment.getUser().getMediumProfileImageUrl()).fit().into(ivCommenterAvatar);
+        ivCommenterAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User commenter = comment.getUser();
+                if (commenter != null) {
+                    int userId = commenter.getId();
+                    Intent intent = new Intent(getContext(), UserActivity.class);
+                    intent.putExtra(User.USER_ID_MESSAGE, userId);
+
+                    parent.getContext().startActivity(intent);
+                }
+            }
+        });
 
         ListView lvChildComments = (ListView) convertView.findViewById(R.id.lvChildComments);
         CommentsArrayAdapter commentsArrayAdapter = new CommentsArrayAdapter(getContext(), comment.getChildComments());
